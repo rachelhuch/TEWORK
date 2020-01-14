@@ -32,40 +32,67 @@ namespace VariableNaming
             3. 3 raccoons are playing in the woods. 2 go home to eat dinner. How
             many raccoons are left in the woods?
             */
-
+            int woodsRaccoons = 3;
+            int dinnerRaccoons = 2;
+            int raccoonsLeft = woodsRaccoons - dinnerRaccoons;
+            Console.WriteLine(raccoonsLeft);
             /*
             4. There are 5 flowers and 3 bees. How many less bees than flowers?
             */
-
+            int flowers = 5;
+            int bees = 3;
+            int fewerBees = flowers - bees;
+            Console.WriteLine(fewerBees);
             /*
             5. 1 lonely pigeon was eating breadcrumbs. Another pigeon came to eat
             breadcrumbs, too. How many pigeons are eating breadcrumbs now?
             */
-
+            int lonelyPigeon = 1;
+            int anotherPigeon = 1;
+            int totalPigeons = lonelyPigeon + anotherPigeon;
+            Console.WriteLine(totalPigeons);
             /*
             6. 3 owls were sitting on the fence. 2 more owls joined them. How many
             owls are on the fence now?
             */
-
+            int originalOwls = 3;
+            int moreOwls = 2;
+            int totalOwls = originalOwls + moreOwls;
+            Console.WriteLine(totalOwls);
             /*
             7. 2 beavers were working on their home. 1 went for a swim. How many
             beavers are still working on their home?
             */
-
+            int workBeavers = 2;
+            int swimBeavers = 1;
+            int stillWorkingBeavers = workBeavers - swimBeavers;
+            Console.WriteLine(stillWorkingBeavers);
             /*
             8. 2 toucans are sitting on a tree limb. 1 more toucan joins them. How
             many toucans in all?
             */
+            int origToucans = 2;
+            int moreToucans = 1;
+            int totalToucans = origToucans + moreToucans;
+            Console.WriteLine(totalToucans);
 
             /*
             9. There are 4 squirrels in a tree with 2 nuts. How many more squirrels
             are there than nuts?
             */
-
+            int squirrels = 4;
+            int nuts = 2;
+            int moreSquirrels = squirrels - nuts;
+            Console.WriteLine(moreSquirrels);
             /*
             10. Mrs. Hilt found a quarter, 1 dime, and 2 nickels. How much money did
             she find?
             */
+            decimal quarter = .25M;
+            decimal dime = .1M;
+            decimal nickels = .05M * 2;
+            decimal moneyFound = quarter + dime + nickels;
+            Console.WriteLine(moneyFound);
 
             /*
             11. Mrs. Hilt's favorite first grade classes are baking muffins. Mrs. Brier's
@@ -73,34 +100,54 @@ namespace VariableNaming
             Mrs. Flannery's class bakes 17 muffins. How many muffins does first
             grade bake in all?
             */
-
+            int brierMuffins = 18;
+            int macadamsMuffins = 20;
+            int flanneryMuffins = 17;
+            int firstGradeMuffins = brierMuffins + macadamsMuffins + flanneryMuffins;
+            Console.WriteLine(firstGradeMuffins);
             /*
             12. Mrs. Hilt bought a yoyo for 24 cents and a whistle for 14 cents. How
             much did she spend in all for the two toys?
             */
-
+            decimal yoyo = .24M;
+            decimal whistle = .14M;
+            decimal toyTotal = yoyo + whistle;
+            Console.WriteLine(toyTotal);
             /*
             13. Mrs. Hilt made 5 Rice Krispie Treats. She used 8 large marshmallows
             and 10 mini marshmallows.How many marshmallows did she use
             altogether?
             */
-
+        
+            int largeMarsh = 8;
+            int miniMarsh = 10;
+            int totalMarsh = largeMarsh + miniMarsh;
+            Console.WriteLine(totalMarsh);
             /*
             14. At Mrs. Hilt's house, there was 29 inches of snow, and Brecknock
             Elementary School received 17 inches of snow. How much more snow
             did Mrs. Hilt's house have?
             */
-
+            int hiltSnow = 29;
+            int schoolSnow = 17;
+            int moreSnow = hiltSnow - schoolSnow;
+            Console.WriteLine(moreSnow);
             /*
             15. Mrs. Hilt has $10. She spends $3 on a toy truck and $2 on a pencil
             case. How much money does she have left?
             */
-
+            decimal startMoney = 10M;
+            decimal toyTruck = 3M;
+            decimal pencilCase = 2M;
+            decimal moneyLeft = startMoney - toyTruck - pencilCase;
+            Console.WriteLine(moneyLeft);
             /*
             16. Josh had 16 marbles in his collection. He lost 7 marbles. How many
             marbles does he have now?
             */
-
+            int startMarbles = 16;
+            int lostMarbles = 7;
+            int leftMarbles = startMarbles - lostMarbles; 
             /*
             17. Megan has 19 seashells. How many more seashells does she need to
             find to have 25 seashells in her collection?
