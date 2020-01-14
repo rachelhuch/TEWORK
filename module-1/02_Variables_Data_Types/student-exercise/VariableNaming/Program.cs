@@ -445,7 +445,15 @@ namespace VariableNaming
             Hint: Calculate the hourly rate for each painter, combine them, and then divide the total walls in feet by the combined hourly rate of the painters.
             Challenge: How many days will it take the pair to paint 623 rooms assuming they work 8 hours a day?.
             */
-            int feetPerRoom=12*14;
+            int linearFeetPerRoom=(12+14)*2;
+            double averageFeetPerHourBill = linearFeetPerRoom / 2.15;
+            double averageFeetPerHourJill = linearFeetPerRoom / 1.90;
+            double combinedFeetPerHour = averageFeetPerHourBill + averageFeetPerHourJill;
+            int numberOfRooms = 5;
+            int totalLinearFeet = numberOfRooms * linearFeetPerRoom;
+            double timeToPaintFiveRooms = totalLinearFeet * numberOfRooms;
+
+
 
             /*
             Create and assign variables to hold your first name, last name, and middle initial. Using concatenation,
