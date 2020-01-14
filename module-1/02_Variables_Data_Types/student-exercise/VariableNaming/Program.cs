@@ -92,7 +92,7 @@ namespace VariableNaming
             decimal dime = .1M;
             decimal nickels = .05M * 2;
             decimal moneyFound = quarter + dime + nickels;
-            Console.WriteLine(moneyFound);
+            Console.WriteLine(moneyFound + "cents");
 
             /*
             11. Mrs. Hilt's favorite first grade classes are baking muffins. Mrs. Brier's
@@ -140,54 +140,74 @@ namespace VariableNaming
             decimal toyTruck = 3M;
             decimal pencilCase = 2M;
             decimal moneyLeft = startMoney - toyTruck - pencilCase;
-            Console.WriteLine(moneyLeft);
+            Console.WriteLine("$" + moneyLeft);
             /*
             16. Josh had 16 marbles in his collection. He lost 7 marbles. How many
             marbles does he have now?
             */
             int startMarbles = 16;
             int lostMarbles = 7;
-            int leftMarbles = startMarbles - lostMarbles; 
+            int leftMarbles = startMarbles - lostMarbles;
             /*
             17. Megan has 19 seashells. How many more seashells does she need to
             find to have 25 seashells in her collection?
             */
-
+            int startShells = 19;
+            int howManyMoreShells = 25 - startShells;
+            Console.WriteLine(howManyMoreShells);
             /*
             18. Brad has 17 balloons. 8 balloons are red and the rest are green. How
             many green balloons does Brad have?
             */
-
+            int totalBalloons = 17;
+            int redBalloons = 8;
+            int greenBalloons = totalBalloons - redBalloons;
+            Console.WriteLine(greenBalloons);
             /*
             19. There are 38 books on the shelf. Marta put 10 more books on the shelf.
             How many books are on the shelf now?
             */
-
+            int startBooks = 38;
+            int moreBooks = 10;
+            int totalBooks = startBooks + moreBooks;
+            Console.WriteLine(totalBooks);
             /*
             20. A bee has 6 legs. How many legs do 8 bees have?
             */
-
+            int eachBeeLegs = 6;
+            int manyBeesLegs = 8 * eachBeeLegs;
+            Console.WriteLine(manyBeesLegs);
             /*
             21. Mrs. Hilt bought an ice cream cone for 99 cents. How much would 2 ice
             cream cones cost?
             */
-
+            decimal iceCream = .99M;
+            decimal moreIceCream = iceCream * 2;
+            Console.WriteLine("$" + moreIceCream);
             /*
             22. Mrs. Hilt wants to make a border around her garden. She needs 125
             rocks to complete the border. She has 64 rocks. How many more rocks
             does she need to complete the border?
             */
-
+            int currentRocks = 64;
+            int moreRocks = 125 - currentRocks;
+            Console.WriteLine(moreRocks);
             /*
             23. Mrs. Hilt had 38 marbles. She lost 15 of them. How many marbles does
             she have left?
             */
-
+            int startingMarbles = 38;
+            int hiltLostMarbles = 15;
+            int marblesLeft = startingMarbles - hiltLostMarbles;
+            Console.WriteLine(marblesLeft);
             /*
             24. Mrs. Hilt and her sister drove to a concert 78 miles away. They drove 32
             miles and then stopped for gas. How many miles did they have left to drive?
             */
-
+            int concertMiles = 78;
+            int drivenSoFar = 32;
+            int milesLeft = concertMiles - drivenSoFar;
+            Console.WriteLine(milesLeft);
             /*
             25. Mrs. Hilt spent 1 hour and 30 minutes shoveling snow on Saturday
             morning and 45 minutes shoveling snow on Saturday afternoon. How
