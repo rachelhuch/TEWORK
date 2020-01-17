@@ -18,16 +18,19 @@ namespace Exercises
         {
             for (int i = 0; i < nums.Length; i++)
             {
-                if (nums[i] != 1 || nums[i] != 3)
+                if (nums[i] == 1 || nums[i] == 3)
                 {
-                    return true;
+                    return false;
                 }
 
-            }
 
-            {
-                return false;
+
+
+
+
+
             }
+            return true;
         }
     }
 }
