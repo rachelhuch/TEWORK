@@ -17,8 +17,55 @@ namespace Exercises
          */
         public int LoneSum(int a, int b, int c)
         {
-            return 0;
-        }
+            bool aEqualsB = (a == b);
+            bool bEqualsC = (b == c);
+            bool cEqualsa = (c == a);
 
+            if (aEqualsB && cEqualsa)
+            {
+              
+                return 0;
+                    }
+                else if (aEqualsB)
+                    {
+                return c;
+                        
+                    }
+            if (bEqualsC && cEqualsa)
+            {
+                return 0;
+            }
+            else if (bEqualsC)
+            {
+                return a;
+            }
+             
+              
+                
+            
+
+            if (bEqualsC)
+            {
+                if (cEqualsa)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return a;
+                }
+            }
+
+            if (cEqualsa)
+            {
+                return b;
+            }
+
+            return (a + b + c);
+             
+
+        }
+   
+       
     }
 }

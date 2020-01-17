@@ -18,7 +18,31 @@ namespace Exercises
          */
         public bool Less20(int n)
         {
-            return false;
+           if ((n % 20) == 8)
+            {
+                return true;
+            }
+
+         else if (n % 20 == 9)
+                {
+                return true;
+            }
+                
+         else if (n % 20 ==18)
+            {
+                return true;
+            }
+               
+            else if (n % 20 ==19)
+            {
+                return true;
+            }
+         
+            else
+            {
+                return false;
+            }
+           
         }
 
     }

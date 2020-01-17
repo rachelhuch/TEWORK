@@ -8,6 +8,7 @@ namespace Lecture
 {
     public partial class LectureProblem
     {
+        
 
         /*
         1a. This method expects an array of integers to be returned.            
@@ -17,6 +18,8 @@ namespace Lecture
         */
         public int[] ReturnNewArray()
         {
+            int[] result = new int[3];
+            return result;
             return null;
         }
 
@@ -40,7 +43,8 @@ namespace Lecture
         */
         public string[] ReturnArrayOfUnknownSize(int n)
         {
-            return null;
+            return new string[n];
+            
         }
 
         

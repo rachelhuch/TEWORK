@@ -15,9 +15,30 @@ namespace Exercises
       Max1020(19, 11) → 19
       Max1020(11, 9) → 11
       */
+      
+
         public int Max1020(int a, int b)
         {
-            return 0;
+       if (a>=10 && a<=20)//if a is in range
+            {
+                if (b>=10 && b <=20)
+                {
+                    return Math.Max(a, b);
+                }
+                return a;
+            }
+        else //a is not in range 
+            {
+                if (b >= 10 && b <= 20)
+                {
+                    return b;
+                }
+            }
+         
+      
+            {
+                return 0;
+            }
         }
 
     }
