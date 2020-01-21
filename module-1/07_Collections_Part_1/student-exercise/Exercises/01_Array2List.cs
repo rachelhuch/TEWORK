@@ -16,7 +16,17 @@ namespace Exercises
          */
         public List<string> Array2List(string[] stringArray)
         {
-            return null;
+            return new List<string>(stringArray);
+            
+            //create a list
+            List<string> result = new List<string>(); 
+            //loop through array, add each element from array to list var word going through string array
+            foreach(string word in stringArray)
+            {
+                result.Add(word);
+
+            }
+            return result;
         }
 
     }
