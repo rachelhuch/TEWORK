@@ -11,7 +11,7 @@ namespace DecimalToBinary
                 int n;
                 int i;
                 int[] a = new int[10];
-                Console.Write("Enter the number to convert: ");
+                Console.Write("Enter the numbers to convert separated by commas: ");
                 n = int.Parse(Console.ReadLine());
                 for (i = 0; n > 0; i++)
                 {

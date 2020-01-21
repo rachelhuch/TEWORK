@@ -17,7 +17,21 @@ namespace Exercises
          */
         public string FrontTimes(string str, int n)
         {
-            return null;
+            //assign an empty string
+            string empty = "";
+            //if the string is less than 3, return string. Else you want the first three letters 
+            string first = str.Length < 3 ? str : str.Substring(0, 3);
+            //iterate through a for loop- with it repeating up to n times
+            for (int i = 0; i < n; i++)
+            {
+                //empty now equals empty + first   (addition assignment operator +=)
+                empty += first;
+            }
+            //return the string first which now has all of the iterations in it
+            return empty;
+
+
+
         }
 
     }
