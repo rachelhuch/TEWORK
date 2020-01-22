@@ -16,7 +16,7 @@ namespace Exercises
          */
         public List<string> Array2List(string[] stringArray)
         {
-            return new List<string>(stringArray);
+            //return new List<string>(stringArray);
             
             //create a list
             List<string> result = new List<string>(); 

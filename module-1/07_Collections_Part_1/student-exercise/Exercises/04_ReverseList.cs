@@ -18,19 +18,11 @@ namespace Exercises
          */
         public List<string> ReverseList(List<string> objectList)
         {
-            //convert list into a stack, pop stack into a new list
-            List<string> newList = new List<string>();
-            
-            Stack<string> stk = new Stack<string>();
-            foreach(string str in objectList)
-            {
-                stk.Push(str);
-            }
-            while (stk.IsEmpty()!=true)
-            {
-                newList.Add(stk.Pop());
-            }
-            return newList;
+           
+            objectList.Reverse();
+
+            return objectList;
+           
         }
 
     }

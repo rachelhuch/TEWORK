@@ -16,7 +16,7 @@ namespace Exercises
          */
         public string[] List2Array(List<string> stringList)
         {
-            return stringList.ToArray();
+            //return stringList.ToArray();
             
             
             string[] result = new string[stringList.Count]; 

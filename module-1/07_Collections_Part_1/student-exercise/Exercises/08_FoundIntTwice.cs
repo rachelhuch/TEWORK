@@ -17,8 +17,27 @@ namespace Exercises
          */
         public bool FoundIntTwice(List<int> integerList, int intToFind)
         {
+            //sort the list
+            integerList.Sort();
+            for (int i = 0; i < integerList.Count - 1; i++)
+            {
+                if (integerList[i] == intToFind && integerList[i + 1] == intToFind)
+                {
+                    return true;
+                }
+            }
             return false;
-        }
+
+            //int count = 0;
+            //foreach(int item in integerList)
+            //{
+            //if (item==inToFind)
+            //{
+            //count ++
+            //}
+        }//return (count >=2);
 
     }
 }
+    
+

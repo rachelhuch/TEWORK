@@ -16,15 +16,18 @@ namespace Exercises
          */
         public List<double> ArrayInt2ListDouble(int[] intArray)
         {
-            List<int> result = new List<int>();
+            List<double> result = new List<double>();
+            
 
-            for (int i=0; i < intArray.Length-1; i++)
+            foreach (double resultOne in intArray)
             {
-                ;
+
+                //take list and add resultOne
+                result.Add(resultOne / 2);
             }
 
 
-            return null;
+            return result;
         }
 
     }
