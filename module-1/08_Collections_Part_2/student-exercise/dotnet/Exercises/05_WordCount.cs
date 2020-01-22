@@ -22,7 +22,21 @@ namespace Exercises
          */
         public Dictionary<string, int> WordCount(string[] words)
         {
-            return null;
+            Dictionary<string, int> countBaa= new Dictionary<string, int>();
+            foreach(string word in words)
+            {
+                bool exists = countBaa.ContainsKey(word);
+                if (exists)
+                {
+                    countBaa[word] += 1; 
+
+                }
+                else
+                {
+                    countBaa.Add(word, 1);
+                }
+            }
+            return countBaa;
         }
     }
 }
