@@ -14,23 +14,38 @@ namespace TechElevator.Classes
     {
         public Dog()
         {
+            _ = IsSleeping == false;
+        }
+
+        public bool IsSleeping { get; private set; }
+
+
+        public string MakeSound()
+        {
+            if (this.IsSleeping == true)
+            {
+                return "Zzzzz...";
+
+            }
+            else
+            {
+                return "Woof!";
+            }
 
         }
-        //add default awake
-        public bool IsSleeping;
-        public void Sleep();
+        public void Sleep() {
+            IsSleeping = true;
+        }
 
-        public void Awake();
-        
-            if(IsSleeping)
-            {
-            return "Zzzzz...";
-            }
-    else return "Woof!";
-            
-      
+        public void WakeUp()
+        {
+            IsSleeping = false;
         }
 
 
     }
 }
+
+
+        
+   

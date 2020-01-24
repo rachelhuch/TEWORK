@@ -18,7 +18,15 @@ namespace DeckOfCards
         static void CardDeck()
         {
             // TODO: Declare a Deck to work with 
+            Deck deck = new Deck();
 
+            //TEMPORARY: See if the constructor and DealOne works
+            for (int i = 0, i<= 10; i++)
+            {
+                Card card = deck.DealOne();
+                Console.WriteLine(card.CardName);
+            }
+            Console.ReadLine();
             // Create the menu loop
             bool keepGoing = true;
             while (keepGoing)
@@ -44,6 +52,7 @@ namespace DeckOfCards
                         continue;
                     case "1":
                         // TODO: Create a new deck of cards
+                        deck = new Deck();
                         break;
                     case "2":
                         // TODO: Shuffle the deck

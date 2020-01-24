@@ -86,7 +86,7 @@ namespace DeckOfCards.Models
             get
             {
                 // TODO: Add the Symbol to the card name
-                return $"{this.ValueName} of {this.Suit}";
+                return $"{this.Symbol}{this.ValueName} of {this.Suit}";
             }
         }
 
