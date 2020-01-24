@@ -25,7 +25,31 @@ namespace Exercises
          */
         public Dictionary<string, int> Last2Revisited(string[] words)
         {
-            return null;
+            //count of when substring appears at (0,2) and at (.length-1, 2)  subtract one.
+            //
+
+            Dictionary<string, int> answer = new Dictionary<string, int>();
+
+            foreach (string item in words)
+            {
+
+                string subAnswer = item.Substring(item.Length - 2, 2);
+                answer.Add(item, 0);
+
+                for (int i = 0; i < item.Length - 2; i++)
+                {
+                    string test = item.Substring(i, 1) + item.Substring(i + 1, 1);
+                    if (test == subAnswer)
+                    {
+                        answer[item] += 1;
+
+                    }
+                }
+            }
+
+
+            return answer;
+
         }
     }
 }

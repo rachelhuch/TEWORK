@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using DeckOfCards.Models;
 
 namespace DeckOfCards
 {
@@ -7,24 +8,47 @@ namespace DeckOfCards
     {
         static void Main(string[] args)
         {
+            CarDemo();
+            
+            
+            
             CardDemo();
 
             //CreateCards();
 
         }
+        private static void CarDemo()
+        {
+            // Declare and allocate a new car object
+            Car car = new Car();
+            car.Make = "Toyota";
+            car.Model = "Camry";
+            car.Year = 2003;
+            
+            Console.WriteLine($"The age of the {car.Model} is {car.Age} years.");
+            Console.WriteLine($"Let's Drive!");
+            for (int i=1; i<=35; i++)
+            {
+                int speed = car.Accelerate(2);
+                Console.WriteLine($"\t The Car is now going {car.Speed} mph.");
+            }
+        }
 
         private static void CardDemo()
         {
+            Card card1 = new Card(1, "Spades");
+            Console.WriteLine($"Card {card1.CardName} is face up?{card1.IsFaceUp}");
         }
-
         static void CreateCards()
         {
             // 1. Create a list to hold some cards
-            object cards = null;
+           List <card> cards = new List<Card>();
+                
 
             // Create the menu loop
             bool keepGoing = true;
             while (keepGoing)
+                
             {
                 Console.Clear();
                 Console.WriteLine("What do you want to do? ");
@@ -126,6 +150,13 @@ namespace DeckOfCards
             }
 
             // Create the card and add to the list
+
+            Card card = new Card(value, suit); 
+            if (card.IsFaceUp != isFaceUp)
+            {
+                card.Flip();
+            }
+            cards.Add(card);
         }
 
 
@@ -133,12 +164,16 @@ namespace DeckOfCards
         /// Display all the cards in the list
         /// </summary>
         /// <param name="cards"></param>
-        private static void DisplayCards(object cards)
+        private static void DisplayCards(List<Card> cards)
         {
             Console.WriteLine("Displaying all of the cards.");
 
-            // Loop through each of the cards and display values
 
+            // Loop through each of the cards and display values
+            foreach(Card card in cards)//type, call, what are we iterating
+            {
+
+            }
         }
 
 

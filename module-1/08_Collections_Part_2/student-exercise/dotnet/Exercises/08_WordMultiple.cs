@@ -19,7 +19,27 @@ namespace Exercises
          */
         public Dictionary<string, bool> WordMultiple(string[] words)
         {
-            return null;
+            Dictionary<string, bool> countWords = new Dictionary<string, bool>();
+            
+            foreach (string letters in words)
+            {
+                bool existsTwice = countWords.ContainsKey(letters);
+                if (!existsTwice)
+                {
+                    countWords.Add(letters, false);
+                }
+                else
+                {
+
+
+                    countWords[letters] = true;
+                }
+                
+            }
+            return countWords;
+
         }
+
     }
 }
+
