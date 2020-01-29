@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PostageCalculator.Classes
+namespace PostageCalculator
 {
     public interface IDeliveryDriver
     {

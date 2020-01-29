@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PostageCalculator.Classes
+namespace PostageCalculator
 {
    public  class ThirdClass :IDeliveryDriver
     {
@@ -56,5 +56,4 @@ public int Distance { get; }
             }
         }
     }
-}
-}
+

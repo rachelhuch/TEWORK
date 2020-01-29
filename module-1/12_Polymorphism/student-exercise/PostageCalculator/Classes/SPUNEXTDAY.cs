@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PostageCalculator
+namespace PostageCalculator.Classes
 {
-    public class SPU : IDeliveryDriver
+    class SPUNEXTDAY : IDeliveryDriver
     {
-        public SPU(int distance, double weight)
+        public SPUNEXTDAY(int distance, double weight)
 
         {
             this.Distance = distance;
             this.Weight = weight;
+            
         }
 
         public int Distance { get; }
@@ -19,14 +20,12 @@ namespace PostageCalculator
         public string Type { get; }
         public double CalculateRate(int distance, double weight)
         {
-            
-            
-                double rate = (weight * .0050) * distance;
-                return rate;
 
-            }
-            
 
-        
+            double rate = (weight * 0.075) * distance;
+            return rate;
+
+        }
+
     }
 }

@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PostageCalculator.Classes
+namespace PostageCalculator
 {
     public class SecondClass :IDeliveryDriver
     {
-       
-       
-            public SecondClass(int distance, double weight)
-            {
-                this.Distance = distance;
-                this.Weight = weight;
+
+
+        public SecondClass(int distance, double weight)
+        {
+            this.Distance = distance;
+            this.Weight = weight;
+        }
 public int Distance { get; }
 public double Weight { get; }
 
