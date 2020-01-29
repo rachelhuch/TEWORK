@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Shapes.Models;
 
 namespace Shapes
 {
-    class DrawingManager
+   public class DrawingManager
     {
         #region Fields
         /// <summary>
@@ -82,7 +83,7 @@ Please choose an option: ");
         private void ClearCanvas()
         {
             // TODO 11 Clear the list of shapes
-
+            shapes.Clear();
             Success("Canvas was cleared");
         }
 
@@ -94,7 +95,11 @@ Please choose an option: ");
             Success("Shapes:");
 
             // TODO 12 Display the list of shapes
-
+            //MVP = minimum viable product
+            foreach (Shape2D shape in shapes)
+            {
+                Success(shape.ToString());
+            }
         }
 
         /// <summary>
@@ -104,7 +109,14 @@ Please choose an option: ");
         {
             // TODO 13 Prompt the user for Width, Height, Color and Filled, then add a Rectangle
 
+            int width = GetPositiveInt("Width: ", 1, 30);
+            int height = GetPositiveInt("Height", 1, 30);
+            ConsoleColor color = GetColor("Shape color: ");
+            bool isFilled = GetBool("Do you want the shape filled? ");
 
+            Rectangle r = new Rectangle(width, height, color, isFilled);
+            shapes.Add(r);
+            
             Success("New Rectangle was added");
 
         }
@@ -116,8 +128,13 @@ Please choose an option: ");
         {
             // TODO 14 Prompt the user for Radius, Color and Filled, then create a Circle
 
+            int radius = GetPositiveInt("Enter readius:", 1, 15);//get positive int was created for this program as a helper method, it's not actually a .Net thing
+            ConsoleColor color = GetColor("Enter the shape and color:");
+            bool isFilled = GetBool("Do you want the shape filled?");
 
-            Success("New Circle was added");
+            Circle c = new Circle(radius, color, isFilled);
+            shapes.Add(c);
+            Success("New Circle was added");//Success is a helper method Mike created
         }
 
         /// <summary>
@@ -126,10 +143,15 @@ Please choose an option: ");
         public void DrawCanvas()
         {
             // TODO 15 Loop through the shapes and Draw each one.
-
+            foreach(Shape2D shape in shapes)
+            {
+                shape.Draw();
+            }
             Success("*** End of Display ***");
         }
         #endregion
+        private List<Shape2D> shapes = new List<Shape2D>();
+
 
         #region Helper Methods
 
