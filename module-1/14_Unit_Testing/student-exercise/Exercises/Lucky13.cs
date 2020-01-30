@@ -11,7 +11,7 @@ namespace Exercises
         /*
          Given an array of ints, return true if the array contains no 1's and no 3's.
          GetLucky([0, 2, 4]) → true
-         GetLucky([1, 2, 3]) → false
+         GetLucky([1, 2, 3]) → falseC:\Users\Student\git\rachelhuch-c\module-1\14_Unit_Testing\student-exercise\Exercises\Lucky13.cs
          GetLucky([1, 2, 4]) → false
          */
         public bool GetLucky(int[] nums)
