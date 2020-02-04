@@ -6,7 +6,7 @@ namespace Exercises.Tests
     {
         internal decimal GetCost(int[] books)
         {
-            throw new NotImplementedException();
+            return 0;
         }
     }
 }

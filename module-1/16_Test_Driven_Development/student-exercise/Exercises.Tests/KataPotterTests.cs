@@ -13,7 +13,7 @@ namespace Exercises.Tests
 
         
             [DataTestMethod]
-            [DataRow(0, 0, 0, 0, 0, 0)]
+            [DataRow (new int[] { 0, 0, 0, 0, 0 }, 0)]
 
             public void GetCostTest(int[] books, decimal expectedCost)
             {
