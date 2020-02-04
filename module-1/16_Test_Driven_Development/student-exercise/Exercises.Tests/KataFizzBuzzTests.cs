@@ -15,6 +15,8 @@ namespace Exercises.Tests
         [DataRow(12, "fizz")]
         [DataRow(24, "fizz")]
         [DataRow(36, "fizz")]
+        [DataRow(13, "fizz")] //contains 3
+        [DataRow(52,"buzz")]
         
         public void fizzBuzzTest(int num, string expected)
         {
@@ -37,6 +39,7 @@ namespace Exercises.Tests
         [DataRow(100, "buzz")]
         [DataRow(25, "buzz")]
         [DataRow(50, "buzz")]
+        
 
 
         public void fizzBuzzTest2(int num, string expected)
@@ -52,6 +55,7 @@ namespace Exercises.Tests
         [DataRow(30, "fizzbuzz")]
         [DataRow(60, "fizzbuzz")]
         [DataRow(90, "fizzbuzz")]
+        
 
         public void fizzBuzzTest3(int num, string expected)
         {

@@ -52,16 +52,16 @@ namespace FileAndDirectory.Classes
                 Console.Clear();
 
                 // TODO 02: Get current and root directories here...
-                string currentPath = "????";
-                string root = "??";
+                string currentPath =Directory.GetCurrentDirectory();
+                string root = Directory.GetDirectoryRoot(currentPath);
                 bool hasParent = (currentPath != root);
                 Console.WriteLine("Navigate Directories Submenu");
                 Console.WriteLine("----------------------------");
                 Console.WriteLine($"Current Directory: {currentPath}");
                 Console.WriteLine();
 
-                /// TODO 03: Get the list of dirs here...
-                string[] dirs = new string[] { };
+                /// TODO 03: Get the list of dirs here...string array of folers
+                string[] dirs = Directory.GetDirectories(currentPath);
 
                 if (hasParent)
                 {
@@ -70,8 +70,8 @@ namespace FileAndDirectory.Classes
                 for (int i = 0; i < dirs.Length; i++)
                 {
 
-                    // TODO 04: Get the relative path here...
-                    string relativePath = "????";
+                    // TODO 04: Get the relative path here...list those folders out however i get them
+                    string relativePath = Path.GetRelativePath(currentPath, dirs[i]);
                     Console.WriteLine($"{i + 1} - {relativePath}");
 
                 }
@@ -84,16 +84,36 @@ namespace FileAndDirectory.Classes
                 }
                 else if (input == "0" && hasParent)
                 {
-                    // TODO 05: Calculate parent folder here, and move there...
-
+                    // TODO 05: Calculate parent folder here, and move there...("..")means go up to parent
+                    Directory.SetCurrentDirectory("..");
 
 
                 }
                 else
                 {
                     // TODO 06: Navigate to the folder at [selection - 1] here....
-                        Console.WriteLine("Invalid selection. Please try again.");
+                    int selection;
+                    if (int.TryParse(input, out selection)
+                        //TryParse doesn't throw exception just returns true or false, return is a bool, also returns number with out before 
+                        {
+                        int index = selection - 1;
+                        if (index < dirs.Length)
+                        {
+                            Directory.SetCurrentDirectory(dirs[index]);
+                        }
+                        else //number but not a valid index
+                        {
+                            Console.WriteLine("invalid please try again");
+                            Console.ReadLine();
+                        }
+                    }
+                    else //tryparse failed, it wasn't even a number
+                    {
+                        Console.WriteLine("Invalid please try again");
                         Console.ReadLine();
+                    }
+                    }
+                  
                 }
             }
         }

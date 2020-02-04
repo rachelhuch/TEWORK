@@ -1,6 +1,7 @@
 ﻿using States.Model;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace States
 {
@@ -26,6 +27,17 @@ namespace States
         private static void DoFileIOStuff()
         {
             // Practice some File IO methods
+            string path = "States.txt";
+            using (StreamReader rdr = new StreamReader(path))//using block
+            {
+                int i = 1;
+                while (!rdr.EndOfStream)
+                {
+                    string nextLine = rdr.ReadLine();
+                    Console.WriteLine($"{i} {nextLine}");
+                    i++;
+                }
+            }
         }
 
         private static void StateGenie()
@@ -57,14 +69,16 @@ namespace States
         private static void LoadStateDictionary()
         {
             // TODO 22: Replace this hard-coded data with a call to the StateFileLoader.
+            StateFileLoader loader = new StateFileLoader("States.txt");
+            stateCodes = new StateDictionary(loader.StateList);
 
-            stateCodes = new StateDictionary(
-                new List<State>()
-                {
-                    new State("OH", "Ohio", "Cleveland", "Timberlake"),
-                    new State("FL", "Florida", "Disney World", "Shady Oaks Retirement Community")
-                }
-            );
+            //stateCodes = new StateDictionary(
+            //    new List<State>()
+            //    {
+            //        new State("OH", "Ohio", "Cleveland", "Timberlake"),
+            //        new State("FL", "Florida", "Disney World", "Shady Oaks Retirement Community")
+            //    }
+            //);
         }
 
         static public State LookupStateName(string stateCode)
@@ -78,6 +92,8 @@ namespace States
             {
                 return null;
             }
+
+
         }
     }
 }

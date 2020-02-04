@@ -8,8 +8,8 @@ namespace FileAndDirectory
     {
         static void Main(string[] args)
         {
-            DoDirectoryAndFileStuff();
-            return;
+          //  DoDirectoryAndFileStuff();
+            //return;
 
 
             // Use the Navigator to allow the user to move around the file system.
@@ -26,7 +26,15 @@ namespace FileAndDirectory
         {
             // Practice some Directory / File class methods
 
+            //Where are we?
+            string currentDir = Directory.GetCurrentDirectory();
+            Console.WriteLine($"The current working director is {currentDir}");
 
+            string newPath = Path.Combine(currentDir, "..\\..");
+            Directory.SetCurrentDirectory(newPath);
+
+            currentDir = Directory.GetCurrentDirectory();
+            Console.WriteLine($"The current working director is {currentDir}");
         }
     }
 }

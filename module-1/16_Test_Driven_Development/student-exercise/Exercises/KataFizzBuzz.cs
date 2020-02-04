@@ -14,19 +14,23 @@ namespace Exercises
             {
                 return "";
             }
-            if (num % 3 == 0 && num % 5 == 0)
+
+            
+            else if ((num % 3 == 0 && num % 5 == 0) || ((num.ToString().Contains("3")) && (num.ToString().Contains("5"))))
             {
                 return "fizzbuzz";
             }
-            else if (num % 3 == 0)
+            else if (num.ToString().Contains("5") || (num % 5 == 0))
+            {
+                return "buzz";
+            }
+            else if (num % 3 == 0 || (num.ToString().Contains("3")))
             {
                 return "fizz";
 
             }
-            else if (num % 5 == 0)
-            {
-                return "buzz";
-            }
+           
+            
             else  
             {
                 return num.ToString();
