@@ -47,7 +47,7 @@ namespace FizzWriter
                 fizzbuzz.Add(result);
 
             }
-            string path = (@"C:\Users\Student\git\rachelhuch - c\module - 1\18_FileIO_Writing_out\student - exercise\fizzbuzz.txt");
+            string path = (@"C:\Users\Student\git\rachelhuch-c\module-1\18_FileIO_Writing_out\student-exercise\fizzbuzz.txt");
             using (StreamWriter sw = new StreamWriter(path))
             {
                 foreach (string list in fizzbuzz)
