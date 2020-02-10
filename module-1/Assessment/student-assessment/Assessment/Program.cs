@@ -1,4 +1,5 @@
 ﻿using System;
+using static Assessment.MovieRental;
 
 namespace Assessment
 {
@@ -6,8 +7,10 @@ namespace Assessment
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            Console.ReadLine();
+            Movie movie = new Movie("Dog", "VHS", false);
+            Console.WriteLine($"{movie.title},{movie.format}");
+            
+
         }
     }
 }
