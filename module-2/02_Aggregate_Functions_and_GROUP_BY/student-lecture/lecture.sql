@@ -1,35 +1,76 @@
 -- ORDERING RESULTS
 
 -- Populations of all countries in descending order
-
+Select name, population
+FROM Country
+ORDER BY population DESC
 --Names of countries and continents in ascending order
-
+SELECT name, continent
+FROM country
+Order By continent, name
 -- LIMITING RESULTS
 -- The name and average life expectancy of the countries with the 10 highest life expectancies.
+SELECT TOP 10 name, lifeexpectancy
+FROM Country
+ORDER BY lifeexpectancy DESC
 
 -- CONCATENATING OUTPUTS
 
 -- The name & state of all cities in California, Oregon, or Washington.
 -- "city, state", sorted by state then city
+SELECT name + ',' + district AS 'CityState'
+FROM city
+WHERE district IN ('California', 'Oregon', 'Washington')
+ORDER BY district, name
+
 
 -- Can you do it another way?
 
 
 -- AGGREGATE FUNCTIONS
+--Total population in Asia
+SELECT SUM(population)
+FROM Country
+WHERE Continent = 'Asia'
+
+SELECT SUM(CAST(population AS BigInt)) 
+FROM Country 
+WHERE continent = 'Asia'
+
+--AVG pop in Asia
+
+SELECT AVG (CAST(population AS BigInt)) 
+FROM country
+Where Continent = 'Asia'
+
 -- Average Life Expectancy in the World
+SELECT AVG(lifeexpectency)
+FROM Country
+
 
 -- Total population in Ohio
-
+SELECT SUM (population)
+FROM City
+WHERE district = 'Ohio'
 -- The surface area of the smallest country in the world
-
--- The 10 largest countries in the world
-
+SELECT MIN(surfacearea)
+FROM Country
+-- The 10 largest countries in the world by length of name
+SELECT TOP 10 name, LEN(name) AS NameLength
+FROM country
+ORDER BY NameLength DESC
 -- The number of countries who declared independence in 1991
-
+SELECT COUNT(*)
+From Country
+WHERE indepyear = 1991
 -- GROUP BY
 -- Count the number of countries where each language is spoken, ordered from most countries to least
-
+SELECT language, COUNT(countrycode) AS CountryCount
+From countrylanguage
+GROUP BY language
+ORDER BY CountryCount DESC
 -- Average life expectancy of each continent ordered from highest to lowest
+
 
 -- Exclude Antarctica from consideration for average life expectancy
 
