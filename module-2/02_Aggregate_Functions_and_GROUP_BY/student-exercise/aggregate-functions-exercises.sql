@@ -120,8 +120,10 @@ ORDER BY lifeexpectancy desc
 -- the world ordered by the absolute value of the difference. Display both 
 -- difference and absolute difference.
 -- (smallest difference: 1.00, 1.00, "Ecuador")
-SELECT gnp - gnpold AS difference,  name
+SELECT gnp-gnpold, ABS(gnp-gnpold) AS diff, name
 FROM country
+WHERE gnp-gnpold IS NOT NULL
+Order by diff
 
 
 -- 17. The average population of cities in each country (hint: use city.countrycode)
@@ -169,7 +171,7 @@ ORDER BY MAX(population) desc
 -- 22. The average, minimum, and maximum non-null life expectancy of each continent 
 -- ordered from lowest to highest average life expectancy. 
 -- (lowest average life expectancy: 52.5719, 37.2, 76.8, "Africa")
-SELECT MAX(lifeexpectancy), MIN(lifeexpectancy), AVG(lifeexpectancy), continent
+SELECT MAX(lifeexpectancy) AS maxlife, MIN(lifeexpectancy) AS minlife, AVG(lifeexpectancy) AS average, continent
 FROM COUNTRY
 WHERE lifeexpectancy >0
 GROUP BY continent
