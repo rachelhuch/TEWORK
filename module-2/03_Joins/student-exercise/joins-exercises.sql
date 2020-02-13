@@ -125,9 +125,13 @@ ORDER BY amount desc
 -- 15. The store ID, street address, total number of rentals, total amount of sales (i.e. payments), and average sale of each store.***
 -- (NOTE: Keep in mind that an employee may work at multiple stores.)
 -- (Store 1 has 7928 total rentals and Store 2 has 8121 total rentals)
-SELECT store.store_id, address.address, 
-FROM Store
-Join address ON store.address_id = address.address_id
+SELECT s.store_id, a.address,(COUNT(r.rental_id)), (SUM(p.amount)), (AVG(p.amount))
+FROM Store s
+Join inventory i ON s.store_id = i.store_id
+JOIN rental r ON i.inventory_id = r.inventory_id
+JOIN payment p ON r.rental_id = p.rental_id
+JOIN address a ON s.address_id = a.address_id
+GROUP BY s.store_id, a.address
 
 
 
@@ -182,15 +186,29 @@ ORDER BY counts DESC
 
 -- 20. The top 5 “Comedy” actors ranked by number of rentals of films in the “Comedy” category starring that actor ***
 -- (#1 should have 87 rentals and #5 should have 72 rentals)
-SELECT TOP 5 actor.first_name, actor.last_name, COUNT(rental.rental_date) AS rental
-From actor
-Join film_actor ON actor.actor_id = film_actor.actor_id
-Join film ON film_actor.film_id = film.film_id
-JOIN film_category ON film.film_id = film_category.film_id
-JOIN category ON film_category.film_id = category.category_id
-JOIN inventory ON film.film_id = inventory.film_id
-JOIN rental ON inventory.inventory_id = rental.inventory_id
-WHERE category.name = 'Comedy'
-GROUP BY actor.first_name, actor.last_name
-ORDER BY rental
+--SELECT TOP 5 actor.first_name, actor.last_name, COUNT(*) AS rental
+--From actor
+--Join film_actor ON actor.actor_id = film_actor.actor_id
+--Join film ON film_actor.film_id = film.film_id
+--JOIN film_category ON film.film_id = film_category.film_id
+--JOIN category ON film_category.film_id = category.category_id
+--JOIN inventory ON film.film_id = inventory.film_id
+--JOIN rental ON inventory.inventory_id = rental.inventory_id
+--WHERE category.name = 'Comedy'
+--GROUP BY actor.actor_id, actor.first_name, actor.last_name
+--ORDER BY rental desc
+
+
+SELECT a.actor_id, a.first_name, a.last_name, COUNT(*) AS rentals 
+FROM rental r
+JOIN inventory i ON r.inventory_id = i.inventory_id
+JOIN film f ON f.film_id = i.film_id
+JOIN film_category fc ON f.film_id = fc.film_id
+JOIN category c ON c.category_id = fc.category_id
+JOIN film_actor fa ON fa.film_id = f.film_id
+JOIN actor a ON a.actor_id = fa.actor_id
+WHERE c.name = 'Comedy' 
+GROUP BY a.actor_id, a.first_name, a.last_name
+ORDER BY rentals desc
+--group by is non aggregated fields
 
