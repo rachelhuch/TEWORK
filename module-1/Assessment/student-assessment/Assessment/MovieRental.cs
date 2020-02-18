@@ -4,101 +4,93 @@ using System.Text;
 
 namespace Assessment
 {
-    class MovieRental
+    public class MovieRental
     {
-        public class Movie
-        {
 
             public string title { get; set; }
             public string format { get; set; }
-
             public bool premiumMovie { get; set; }
 
-            public Movie(string aTitle, string aFormat, bool isPremium)
+            public MovieRental(string aTitle, string aFormat, bool isPremium)
             {
                 title = aTitle;
                 format = aFormat;
                 premiumMovie = isPremium;
 
             }
-
-            public decimal price;
-          ////  public decimal Price() 
-          //  {
-          //          if (!premiumMovie)
-          //          {
-          //              if (format == "VHS")
-          //              {
-          //                  price = .99M;
-          //                  Console.WriteLine(price);
+        
+        public decimal price
+            {
+                get { return price; }
+                set
+                {
 
 
-          //              }
-          //              else if (format == "DVD")
-          //              {
-          //                  price = 1.99M;
-          //                  Console.WriteLine(price);
-
-          //              }
-          //              else if (format == "BluRay")
-          //              {
-          //                  price = 2.99M;
-          //                  Console.WriteLine(price);
-
-          //              }
+                    if (format == "VHS")
+                    {
+                        price = .99M;
 
 
-          //              else if (premiumMovie)
-          //              {
-          //                  if (format == "VHS")
-          //                  {
-          //                      price = 1.99M;
-          //                      Console.WriteLine(price);
-          //                  }
-          //                  else if (format == "DVD")
-          //                  {
-          //                      price = 2.99M;
-          //                      Console.WriteLine(price);
-          //                  }
-          //                  else if (format == "BluRay")
-          //                  {
-          //                      price = 3.99M;
-          //                      Console.WriteLine(price);
-          //                  }
-          //                  else
-          //                  {
-          //                      price = 0.00M;
-          //                      Console.WriteLine(price);
-          //                  }
-          //              }
-          //          }
-          //      }
-          //  }
+
+                    }
+                    else if (format == "DVD")
+                    {
+                        price = 1.99M;
+
+
+                    }
+                    else if (format == "BluRay")
+                    {
+                        price = 2.99M;
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("Price not found");
+                    }
+
+                    if (premiumMovie)
+                    {
+                        price += 1.00M;
+                    }
+
+
+                }
+
+            }
 
             public int daysLate;
 
             public decimal GetLateFee()
             {
-                if (daysLate ==0)
+                if (daysLate == 0)
                 {
                     return 0.00M;
                 }
 
-                else if (daysLate ==1)
+                else if (daysLate == 1)
                 {
                     return 1.99M;
                 }
-                else if (daysLate ==2)
+                else if (daysLate == 2)
                 {
                     return 3.99M;
                 }
                 //directions say if equal to 2 or more but the one above is eqaul to 2.
-                else 
+                else
                 {
                     return 19.99M;
                 }
             }
-            }
 
+           
+                   public override string ToString()
+        {
+            return ($"Movie -{title}- {format}- {price}");//quotation marks because it's returning a string
+        }
     }
-}
+
+        }
+    
+
+

@@ -40,61 +40,7 @@ namespace WorldDB.DAL
 
                     while (rdr.Read())
                     {
-                        Country country = new Country();
-                        country.code = Convert.ToString(rdr["code"]);
-                        country.Name = Convert.ToString(rdr["Name"]);
-                        country.Continent = Convert.ToString(rdr["Continent"]);
-                        country.Region = Convert.ToString(rdr["Region"]);
-                        country.GovernmentForm = Convert.ToString(rdr["GovernmentForm"]);
-                        country.HeadOfState = Convert.ToString(rdr["HeadOfState"]);
-                        country.LocalName = Convert.ToString(rdr["LocalName"]);
-                        country.Code2 = Convert.ToString(rdr["Code2"]);
-                        country.SurfaceArea = Convert.ToDouble(rdr["SurfaceArea"]);
-
-                        if (rdr["indepyear"] is DBNull)
-                        {
-                            country.IndependenceYear = null;
-                        }
-                        else
-                        {
-                            country.IndependenceYear = Convert.ToInt32(rdr["indepyear"]);
-                        }
-
-                        country.Population = Convert.ToInt32(rdr["population"]);
-
-
-
-                        if (rdr["lifeexpectency"] is DBNull)
-                        {
-                            country.LifeExpectancy = null;
-                        }
-                        else
-                        {
-                            country.LifeExpectancy = Convert.ToDouble(rdr["Lifeexpectancy"]);
-                        }
-
-
-
-                        if (rdr["capital"] is DBNull)
-                        {
-                            country.CapitalId = null;
-                        }
-                        else
-                        {
-                            country.CapitalId = Convert.ToInt32(rdr["capital"]);
-                        }
-
-
-                        if (rdr["gnp"] is DBNull)
-                        {
-                            country.gnp = null;
-                        }
-                        else
-                        {
-                            country.gnp = Convert.ToDecimal(rdr["gnp"]);
-                        }
-
-                        country.Population = Convert.ToInt32(rdr["population"]);
+                        Country country = NewMethod(rdr);
 
                         list.Add(country);
 
@@ -112,6 +58,66 @@ namespace WorldDB.DAL
             }
 
             return list;
+        }
+
+        private static Country NewMethod(SqlDataReader rdr)
+        {
+            Country country = new Country();
+            country.code = Convert.ToString(rdr["code"]);
+            country.Name = Convert.ToString(rdr["Name"]);
+            country.Continent = Convert.ToString(rdr["Continent"]);
+            country.Region = Convert.ToString(rdr["Region"]);
+            country.GovernmentForm = Convert.ToString(rdr["GovernmentForm"]);
+            country.HeadOfState = Convert.ToString(rdr["HeadOfState"]);
+            country.LocalName = Convert.ToString(rdr["LocalName"]);
+            country.Code2 = Convert.ToString(rdr["Code2"]);
+            country.SurfaceArea = Convert.ToDouble(rdr["SurfaceArea"]);
+
+            if (rdr["indepyear"] is DBNull)
+            {
+                country.IndependenceYear = null;
+            }
+            else
+            {
+                country.IndependenceYear = Convert.ToInt32(rdr["indepyear"]);
+            }
+
+            country.Population = Convert.ToInt32(rdr["population"]);
+
+
+
+            if (rdr["lifeexpectency"] is DBNull)
+            {
+                country.LifeExpectancy = null;
+            }
+            else
+            {
+                country.LifeExpectancy = Convert.ToDouble(rdr["Lifeexpectancy"]);
+            }
+
+
+
+            if (rdr["capital"] is DBNull)
+            {
+                country.CapitalId = null;
+            }
+            else
+            {
+                country.CapitalId = Convert.ToInt32(rdr["capital"]);
+            }
+
+
+            if (rdr["gnp"] is DBNull)
+            {
+                country.gnp = null;
+            }
+            else
+            {
+                country.gnp = Convert.ToDecimal(rdr["gnp"]);
+            }
+
+            country.Population = Convert.ToInt32(rdr["population"]);
+            return country;
         }
     }
 }

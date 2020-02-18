@@ -19,7 +19,7 @@ CREATE TABLE Employee
     [DateOfBirth] NVARCHAR(10) NOT NULL, 
     [DateOfHire] NVARCHAR(10) NOT NULL, 
     [EmployeeDepartmentName] NVARCHAR(50) NULL
-	)
+	);
 
 CREATE TABLE Project
 (
@@ -30,7 +30,7 @@ CREATE TABLE Project
     [EmployeeDepartmentName] NVarCHAR(50) NOT NULL, 
 	[EmployeeNumber] INT NOT NULL
 	Constraint fk_Employee_Department foreign key (EmployeeNumber) references Employee(EmployeeNumber)
-)
+);
 
 
 CREATE TABLE Department
@@ -40,7 +40,7 @@ CREATE TABLE Department
     [NumberOfEmployees] INT NOT NULL,
 	[EmployeeNumber]INT NOT NULL
 	Constraint fk_Employee_Department1 foreign key (EmployeeNumber) references Employee(EmployeeNumber)
-)
+);
 
 Insert into Employee ( JobTitle, FirstName, LastName, Gender, DateOfBirth, DateOfHire, EmployeeDepartmentName)
 Values('Director of Marketing', 'John', 'Phoney', 'M', '1/1/1981', '1/4/2020', 'Marketing'),
@@ -56,8 +56,15 @@ Values ('Junior Developer', 'Rachel','F',  'Juch', '12/14/83', '4/17/2020', 'Tec
 ('CFO', 'Kevin', 'Stark', '5/5/1965', 'M', '10/10/2010', 'Management')
 
 Insert into Project(ProjectName, ProjectStartDate, NumberOfEmployees, EmployeeDepartmentName, EmployeeNumber)
-(
-	
+Values ('Media One', '2/17/2020', 1, 'Human Resources', 3),
+('Media One', '2/17/2020', 1, 'Management', 4),
+('Media One', '2/17/2020', 1, 'Management', 8),
+('Media One', '2/17/2020', 1, 'Management', 9),
+('Dev One', '2/17/2020', 1, 'Technology', 5),
+('Dev One', '2/17/2020', 1, 'Technology', 6),
+('Dev One', '2/17/2020', 1, 'Management', 4),
+('Media New', '2/1/2020', 1, 'Marketing', 2),
+('Marketing Four', '2/17/2020', 1, 'Marketing', 1)
 
 
 
