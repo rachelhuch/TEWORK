@@ -17,54 +17,97 @@ namespace Exercises
          */
         public int LoneSum(int a, int b, int c)
         {
-            bool aEqualsB = (a == b);
-            bool bEqualsC = (b == c);
-            bool cEqualsa = (c == a);
 
-            if (aEqualsB && cEqualsa)
-            {
-              
-                return 0;
-                    }
-                else if (aEqualsB)
-                    {
-                return c;
-                        
-                    }
-            if (bEqualsC && cEqualsa)
+
+            if (a == b && a == c)
             {
                 return 0;
             }
-            else if (bEqualsC)
+            else if (a == b)
+            {
+                return c;
+            }
+            else if (b == c)
             {
                 return a;
             }
+            else if(a==c)
+                {
+                return b;
+            }
+            else
+            {
+                return a + b + c;
+            }
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //    bool aEqualsB = (a == b);
+        //    bool bEqualsC = (b == c);
+        //    bool cEqualsa = (c == a);
+
+        //    if (aEqualsB && cEqualsa)
+        //    {
+              
+        //        return 0;
+        //            }
+        //        else if (aEqualsB)
+        //            {
+        //        return c;
+                        
+        //            }
+        //    if (bEqualsC && cEqualsa)
+        //    {
+        //        return 0;
+        //    }
+        //    else if (bEqualsC)
+        //    {
+        //        return a;
+        //    }
              
               
                 
             
 
-            if (bEqualsC)
-            {
-                if (cEqualsa)
-                {
-                    return 0;
-                }
-                else
-                {
-                    return a;
-                }
-            }
+        //    if (bEqualsC)
+        //    {
+        //        if (cEqualsa)
+        //        {
+        //            return 0;
+        //        }
+        //        else
+        //        {
+        //            return a;
+        //        }
+        //    }
 
-            if (cEqualsa)
-            {
-                return b;
-            }
+        //    if (cEqualsa)
+        //    {
+        //        return b;
+        //    }
 
-            return (a + b + c);
+        //    return (a + b + c);
              
 
-        }
+        //}
    
        
     }

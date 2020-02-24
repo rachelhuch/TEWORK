@@ -17,13 +17,40 @@ namespace Exercises
          */
         public int[] RotateLeft3(int[] nums)
         {
-            int firstElement = nums[0];
-            nums[0] = nums[1];
-            nums[1] = nums[2];
-            nums[2] = firstElement;
-            return nums;
-            
+            int newnum = nums[0];
+            int[] woot = new int[] { nums[1], nums[2], nums[0] };
+            return woot;
+
         }
+
+
+
+                 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //    int firstElement = nums[0];
+        //    nums[0] = nums[1];
+        //    nums[1] = nums[2];
+        //    nums[2] = firstElement;
+        //    return nums;
+            
+        //}
 
     }
 }

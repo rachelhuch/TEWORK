@@ -17,15 +17,33 @@ namespace Exercises
         */
         public bool Or35(int n)
         {
-            if ((n >= 0) && ((n % 3 == 0) || (n % 5 == 0)))
-                {
-                
-                    return true;
-            }
-            else
+            if(n%3==0 ||n%5==0)
             {
-                return false;
+                return true;
             }
+            return false;
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //if ((n >= 0) && ((n % 3 == 0) || (n % 5 == 0)))
+            //    {
+                
+            //        return true;
+            //}
+            //else
+            //{
+            //    return false;
+            //}
         }
 
     }

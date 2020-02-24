@@ -21,21 +21,55 @@ namespace Exercises
         {
             if (equalOk)
             {
-                if (a <= b && b <= c)
+                if (a <=b && b<=c)
                 {
-                    return true;
+                    return true; 
                 }
- 
             }
-            else 
+            else if(a<b && b<c)
             {
-                if (a < b && b < c)
-                {
-                    return true;
-                }
-
+                return true;
             }
             return false;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //if (equalOk)
+            //{
+            //    if (a <= b && b <= c)
+            //    {
+            //        return true;
+            //    }
+ 
+            //}
+            //else 
+            //{
+            //    if (a < b && b < c)
+            //    {
+            //        return true;
+            //    }
+
+            //}
+            //return false;
         }
     }
 }
