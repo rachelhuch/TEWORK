@@ -12,6 +12,112 @@
   * {
     box-sizing: border-box;
     font-family: Tahoma, Verdana, Segoe, sans-serif;
+
   }
+
+
+  aside{
+    position:fixed;
+    width: 200px;
+  }
+  aside > img{
+    width:160px;
+    padding-left:28px;
+  }
+  main{
+    margin-left:200px;
+
+  }
+  main >img{
+    max-width: 100%;
+    border-left:2px solid var(--light-blue);
+    padding-left:20px;
+
+  }
+  #what-we-do{
+    
+    display:inline-block;
+    width:31%;
+    border-right: var(--green);
+    vertical-align:top;
+    padding-right:10px;
+    margin-top:10px;
+  }
+  h2{
+    color:var(--light-green);
+  }
+  #our-work{
+    display:inline-block;
+    width:31%;
+    border-left:2px solid var(--light-green);
+    border-right:2px solid var(--light-green);
+    padding-left:25px;
+    vertical-align:top;
+    margin-right:10px;
+    padding-right:10px;
+    margin-top:10px;
+  }
+  #contact-us{
+    display: inline-block;
+    width:31%;
+    padding-left:10px;
+    vertical-align:top;
+    margin-left:10px;
+    padding-right:10px;
+    margin-top:10px;
+    
+
+  }
+html
+{
+  background-color: 
+  rgba(192, 192, 192, 0.1);
+}
+a:link{
+  text-decoration:overline 00ADEE;
+ 
+}
+ul{
+  list-style-type: none;
+  text-transform: uppercase;
+  color:  #00adee;
+  text-decoration: none;
+  text-align: center;
+  line-height:45px;
+  padding-top:15px;
+  padding-bottom:0px;
+  padding-left:0;
+
+
+
+}
+aside a{
+  text-decoration:none;
+  font-weight:bold;
+ color:#00adee;
+  padding-left:30px;
+ 
+  padding-bottom:10px;
+  text-align:center;
   
   
+  
+  
+}
+aside{
+  padding-right:15px;
+  align-content:center;
+}
+aside > nav > ul > li{
+  text-align: center;
+  margin-right:25px;
+  border-bottom: 1px solid var(--light-blue);
+  margin:0px 30px;
+}
+aside >img{
+  margin:auto;
+}
+main>section>div>p{
+  text-align:justify;
+  
+}
