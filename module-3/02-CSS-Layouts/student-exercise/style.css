@@ -10,20 +10,34 @@
 html {
     font-size: 16px;
 }
+body{
+    margin-left:8%;
+    margin-right:8%;
 
+}
+header img
+{
+    height: 40px;
+}
+h1{
+    font-size:2em;
+}
+h2
+{
+    font-size:1.75em;
+    line-height:1.4em;
+}
  
 #student-grid
 {
     display:grid;
-    grid-template-columns:8% 1fr 1fr 1fr 8%;
-    grid-template-areas:". quote quote pic ."
-                        ". profile profile contact ."
-                        ". experience experience experience .";
+    grid-template-columns: 1fr 1fr 1fr ;
+    grid-template-areas:"quote quote pic"
+                        "profile profile contact"
+                        "experience experience experience";
 }
 
-header{
-    height:20px;
-}
+
 #student-quote
 {
     grid-area: quote;
@@ -42,17 +56,9 @@ header{
     grid-area: contact;
     text-align: center;
 }
-header > img
-{
-    height: 20px;
-    margin: 8%;
-}
 
-main >h1
-{
-    margin-left:8%;
-    margin-top:5pt;
-}
+
+
 
 #student-picture >img {
     
