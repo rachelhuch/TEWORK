@@ -7,44 +7,53 @@
     font-family: Tahoma, Verdana, Segoe, sans-serif;
     box-sizing: border-box;
 }
-#student-grid
-{
-    display:grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-areas:
-    "student-quote student-picture"
-    "student-profile student-contact"
-    "experience"
-}
-
-#student-quote
-{
-    grid-area:student-quote;
-    margin:auto;
-}
-#student-picture
-{
-    grid-area:student-picture;
-}
-#te-logo
-{
-    
-        max-width:40%;
-        height:auto;
-    }
-
-
 html {
     font-size: 16px;
 }
-.headline
+
+ 
+#student-grid
 {
-    font-size: 40px;
+    display:grid;
+    grid-template-columns:8% 1fr 1fr 1fr 8%;
+    grid-template-areas:". quote quote pic ."
+                        ". profile profile contact ."
+                        ". experience experience experience .";
 }
- header{
-     grid-area:header;
-     
+
+header{
+    height:20px;
 }
+#student-quote
+{
+    grid-area: quote;
+     margin:auto; 
+}
+#student-picture
+{
+    grid-area: pic;
+}
+#student-profile
+{
+    grid-area: profile;
+}
+#student-contact
+{
+    grid-area: contact;
+    text-align: center;
+}
+header > img
+{
+    height: 20px;
+    margin: 8%;
+}
+
+main >h1
+{
+    margin-left:8%;
+    margin-top:5pt;
+}
+
 #student-picture >img {
     
         border-radius: 50%;
@@ -61,7 +70,9 @@ grid-area: experience;
     flex-grow: 1;
     margin: 0px 20px;
 }
-
+div >h3{
+    color : #00adee
+}
 
 
 

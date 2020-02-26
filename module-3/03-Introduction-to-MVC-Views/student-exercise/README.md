@@ -6,7 +6,6 @@ Modify the `FizzBuzz` view. The format for the URL is `http://localhost:xxxxx/ho
 
 Create an unordered list with the id `fizzbuzz` that contains a list of numbers from 1 up to and including the number. However, the number should be replaced given the following rules:
 
-- If the number is divisible by 3, show "Fizz!" and apply the `fizz` class to the element.
 
 - If the number is divisible by 5, show "Buzz!" and apply the `buzz` class to the element.
 
