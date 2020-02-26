@@ -7,8 +7,65 @@
     font-family: Tahoma, Verdana, Segoe, sans-serif;
     box-sizing: border-box;
 }
+#student-grid
+{
+    display:grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas:
+    "student-quote student-picture"
+    "student-profile student-contact"
+    "experience"
+}
+
+#student-quote
+{
+    grid-area:student-quote;
+    margin:auto;
+}
+#student-picture
+{
+    grid-area:student-picture;
+}
+#te-logo
+{
+    
+        max-width:40%;
+        height:auto;
+    }
+
 
 html {
     font-size: 16px;
 }
+.headline
+{
+    font-size: 40px;
+}
+ header{
+     grid-area:header;
+     
+}
+#student-picture >img {
+    
+        border-radius: 50%;
+       
+      }
+#experience{
+display:flex;
+flex-direction: row;
+flex-wrap:wrap;
+grid-area: experience;
+}
+#experience > div{
+    flex-basis: 400px;
+    flex-grow: 1;
+    margin: 0px 20px;
+}
+
+
+
+
+
+
+
 

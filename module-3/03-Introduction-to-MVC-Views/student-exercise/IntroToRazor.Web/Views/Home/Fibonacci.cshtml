@@ -1,5 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Fibonacci";
+    int num = (int)ViewData["max"];
 }
 
 <nav id="page-options">
@@ -9,7 +10,27 @@
         <li><a asp-controller="Home" asp-action="Fibonacci" asp-route-max="100">100</a></li>
     </ul>
 </nav>
+<ul id="fibonacci">
 
-@*
-    REPLACE THIS COMMENT SECTION WITH YOUR UNORDERED LIST
-*@
+    @{int fibOne = 0;
+        int fibTwo = 1;
+        int fibThree = 0;
+        string toPrint = "0,1";
+        Console.Write(toPrint);
+
+
+        for (int i = 0; fibThree < num; i++)
+        {
+            fibThree = fibOne + fibTwo;
+            if (fibThree < num)
+            {
+                <li>@fibThree</li>
+            }
+
+            fibOne = fibTwo;
+            fibTwo = fibThree;
+        }
+
+    }
+</ul>
+    

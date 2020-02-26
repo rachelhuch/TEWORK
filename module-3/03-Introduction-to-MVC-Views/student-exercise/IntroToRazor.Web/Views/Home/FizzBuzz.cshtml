@@ -1,5 +1,6 @@
 ﻿@{
     ViewData["Title"] = "FizzBuzz";
+    int num = (int)ViewData["number"];
 }
 
 <nav id="page-options">
@@ -9,7 +10,24 @@
         <li><a asp-controller="Home" asp-action="FizzBuzz" asp-route-number="100">100</a></li>
     </ul>
 </nav>
-
-@*
-    REPLACE THIS COMMENT SECTION WITH YOUR UNORDERED LIST
-*@
+<ul id="fizzbuzz">
+    @for(int i =1; i<num; i++)
+    {
+    if (i % 3==0 && i%5==0)
+    {
+    <li class="fizzbuzz">Fizzbuzz!</li>
+    }
+    else if (i % 3==0)
+    {
+    <li class="fizz">Fizz!</li>
+    }
+    else if(i %5==0)
+    {
+    <li class="buzz">Buzz!</li>
+    }
+    else
+    {
+    <li>@i</li>
+    }
+    }
+</ul>
