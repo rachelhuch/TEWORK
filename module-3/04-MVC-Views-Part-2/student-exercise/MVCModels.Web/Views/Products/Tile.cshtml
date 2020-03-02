@@ -7,43 +7,80 @@
 <div id="masonry-page">
 
     @{
-        ViewData["Action"] = "";
-        ViewData["Controller"] = "";
+        ViewData["Action"] = "Tile";
+        ViewData["Controller"] = "Products";
     }
     <partial name="_Filters" />
+
+
 
     <!-- Container for all of the Products -->
     <div id="grid" class="main-content">
 
-        <!-- The following HTML shows different examples of what HTML 
-                could be rendered based on different rules. For purposes
-                of demonstration we've written it out so you can see it
-                when you load the page up. -->
+        @foreach (Product product in Model)
+        {
+            string classString = "tile";
+            if (product.RemainingStock == 0)
+            {
+                classString += " sold out";
+            }
+            if (product.IsTopSeller)
+            {
+                classString += " top-seller";
+            }
 
-        <!-- Standard Product -->
-        <div class="tile  ">
+            <div class="@classString">
+                @if (product.RemainingStock == 0)
+                {
+                    <span class="banner">Sold Out </span>
+                }
 
-            <!-- Link to the Detail page using the product id (e.g. Products/Detail/1) -->
-            <a class="product-image" href="#">
-                <img src="/images/product-images/grey-sofa.jpg" />
-            </a>
-            <div class="details">
-                <p class="name"><a href="#">Grey Sofa</a></p>
+                <a class="product-image" asp-controller="Products" asp-action="Detail" asp-route-id="@product.Id">
+                    <img src="~/images/product-images/@product.ImageName" />
+                </a>
 
-                <!-- .filled will make the star solid -->
-                <div class="rating">
-                    <span class="filled">&#9734;</span>
-                    <span>&#9734;</span>
-                    <span>&#9734;</span>
-                    <span>&#9734;</span>
-                    <span>&#9734;</span>
+                <!-- The following HTML shows different examples of what HTML
+                        could be rendered based on different rules. For purposes
+                        of demonstration we've written it out so you can see it
+                        when you load the page up. -->
+                <!-- Link to the Detail page using the product id (e.g. Products/Detail/1) -->
+            
+               
+                <div class="details">
+                    <p class="name"><a  asp-controller="Products" asp-action="Detail" asp-route-id="@product.Id">@product.Name</a></p>
+
+                    <!-- .filled will make the star solid -->
+                    <div class="rating">
+
+                        @for (int i = 0; i < 5; i++)
+                        {
+                            if (product.AverageRating > i)
+                            {
+                                <span class="filled">&#9734;</span>
+                            }
+                            else
+                            {
+                                <span>&#9734;</span>
+                            }
+                        }
+
+
+                    </div>
+
+                    @if(product.IsTopSeller)
+                    {
+                        <p class="product-alert">Top Seller</p>
+                    }
+                    @if (product.RemainingStock >0 && product.RemainingStock <=5)
+                    {
+                        <p class="product-alert">@product.RemainingStock  remaining!</p>
+                    }
+
+                    <p class="price">@product.Price</p>
                 </div>
-
-                <p class="price">$939.00</p>
             </div>
-        </div>
-
-        <!-- Add the .top-seller class if the product is considered a Top Seller -->
+        }
+      @* <!-- Add the .top-seller class if the product is considered a Top Seller -->
         <div class="tile top-seller ">
 
             <!-- Link to the Detail page using the product id (e.g. Products/Detail/1) -->
@@ -63,7 +100,7 @@
                 </div>
 
                 <!-- Add the Top Seller <br/> and product alert
-            if the product is considered a Top Seller -->
+                if the product is considered a Top Seller -->
                 <br />
                 <p class="product-alert">Top Seller</p>
                 <!--
@@ -98,7 +135,7 @@
 
                 <p class="price">$939.00</p>
             </div>
-        </div>
+        </div>*@ 
 
     </div>
 </div>

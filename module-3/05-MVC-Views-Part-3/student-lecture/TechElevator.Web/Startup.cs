@@ -12,7 +12,7 @@ namespace TechElevator.Web
 
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            Configuration = configuration.GetConnectionString;
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -22,6 +22,11 @@ namespace TechElevator.Web
             // TODO: Use Configuration to get a connection string to the database
 
             // TODO: Add Dependency Injection setup logic here for a Film DAO
+            //Listen framework, anytime someone needs an IStarWarsDAO, I'm telling you 
+            //create a StarWarsSqlDAO and give that to them 
+
+            string connectionString = Configuration.GetConnectionString
+            services.AddTransient<IStarWarsDAO, StarWarsSqlDAO>(x => new StarWarsSqlDAO(connectionString));
 
             services.AddMvc();
         }

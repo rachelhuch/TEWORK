@@ -1,4 +1,3 @@
-# MVC Views - Part 2 (Day 1)
 
 The purpose of this exercise is to provide you the opportunity to practice using complex data that is provided from a "controller" in your views. 
 
@@ -48,6 +47,7 @@ The controllers, DAOs, database, CSS, and routes have already been created for y
 #### List View
 
 ![List View](examples/product-list.png)
+
 
 #### Tile View
 

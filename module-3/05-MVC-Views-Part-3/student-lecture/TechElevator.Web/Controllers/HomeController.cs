@@ -10,6 +10,7 @@ namespace TechElevator.Web.Controllers
     {
         public IActionResult Index()
         {
+            //return RedirectToAction("Index", "Films");
             return View();
         }
 

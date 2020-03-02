@@ -8,28 +8,37 @@
 
         NOTE: Each of the views that call this class will be passed an Action and Controller in the ViewData
         dictionary. These will be necessary when generating the links for the appropriate pages on the view.
-        You can access these values with the @ViewData["Action"] or @ViewData["Controller"] syntax.
+        You can access these values with the //use these for your actoi @ViewData["Action"] or @ViewData["Controller"] syntax.
         -->
+@{ 
+    string action = (string)ViewData["Action"];
+    string controller = (string)ViewData["controller"];
+    }
     <div id="filter-options">
         <h3>Refine By</h3>
         <p>Price</p>
         <ul>
-            <li><a href="#">Under $25</a></li>
-            <li><a href="#">$25 to $50</a></li>
-            <li><a href="#">$50 & Above</a></li>
+            <li>
+            <a asp-controller="@controller" asp-action="@action" asp-route-maxPrice="25" asp-route-minPrice="0">Under$25</a>
+            </li>
+            <li><a asp-controller="@controller" asp-action="@action" asp-route-maxPrice="50" asp-route-minPrice="25">$25 to $50</a></li>
+            <li><a asp-controller="@controller" asp-action="@action" asp-route-maxPrice="@decimal.MaxValue" asp-route-minPrice="50">$50 & Above</a></li>
+            
         </ul>
         <p>Avg. Review</p>
         <ul>
-            <li><a class="rating" href="#"><span class="filled">&#9734;</span><span class="filled">&#9734;</span><span class="filled">&#9734;</span><span class="filled">&#9734;</span><span>&#9734;</span> & Up</a></li>
-            <li><a class="rating" href="#"><span class="filled">&#9734;</span><span class="filled">&#9734;</span><span class="filled">&#9734;</span><span>&#9734;</span><span>&#9734;</span> & Up</a></li>
-            <li><a class="rating" href="#"><span class="filled">&#9734;</span><span class="filled">&#9734;</span><span class="filled">&#9734;</span><span>&#9734;</span><span>&#9734;</span> & Up</a></li>
-            <li><a class="rating" href="#"><span class="filled">&#9734;</span><span>&#9734;</span><span>&#9734;</span><span>&#9734;</span><span>&#9734;</span> & Up</a></li>
+            
+
+            <li><a class="rating" asp-controller="@controller" asp-action="@action" asp-route-minRating="4"><span class="filled">&#9734;</span><span class="filled">&#9734;</span><span class="filled">&#9734;</span><span class="filled">&#9734;</span><span>&#9734;</span> & Up</a></li>
+            <li><a class="rating" asp-controller="@controller" asp-action="@action" asp-route-minRating="3"><span class="filled">&#9734;</span><span class="filled">&#9734;</span><span class="filled">&#9734;</span><span>&#9734;</span><span>&#9734;</span> & Up</a></li>
+            <li><a class="rating" asp-controller="@controller" asp-action="@action" asp-route-minRating="2"><span class="filled">&#9734;</span><span class="filled">&#9734;</span><span class="filled">&#9734;</span><span>&#9734;</span><span>&#9734;</span> & Up</a></li>
+            <li><a class="rating" asp-controller="@controller" asp-action="@action" asp-route-minRating="1"><span class="filled">&#9734;</span><span>&#9734;</span><span>&#9734;</span><span>&#9734;</span><span>&#9734;</span> & Up</a></li>
         </ul>
         <p>Category</p>
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Apparel</a></li>
-            <li><a href="#">Jewelry</a></li>
-            <li><a href="#">Garden</a></li>
+            <li><a class="category" asp-controller="@controller" asp-action="@action" asp-route-category="Home">Home</a></li>
+            <li><a class="category" asp-controller="@controller" asp-action="@action" asp-route-category="Apparel">Apparel</a></li>
+            <li><a class="category" asp-controller="@controller" asp-action="@action" asp-route-category="Jewelry">Jewelry</a></li>
+            <li><a class="category" asp-controller="@controller" asp-action="@action" asp-route-category="Garden">Garden</a></li>
         </ul>
     </div>
