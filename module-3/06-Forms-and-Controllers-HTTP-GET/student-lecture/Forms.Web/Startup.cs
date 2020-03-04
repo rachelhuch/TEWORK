@@ -37,11 +37,15 @@ namespace Forms.Web
             /**** DEPENDENCY INJECTION *****/
             // TODO 01: Configure Dependency Injection (DI) in Startup.cs.
             // First, find the connection string in AppSettings.json using the Configuration object
-
+            string connectionString = Configuration.GetConnectionString("Default");
             // Then tell the DI Container what "implementation" to create whenever it is asked for a "service"
 
+            services.AddTransient<ICityDAO, CitySqlDAO>((x) => new CitySqlDAO(connectionString));
+            //configure services                                  gets called at time needed when city controller created
         }
 
+       
+        
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {

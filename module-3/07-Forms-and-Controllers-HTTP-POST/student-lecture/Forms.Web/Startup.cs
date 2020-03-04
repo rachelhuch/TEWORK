@@ -50,6 +50,9 @@ namespace Forms.Web
             // But this is what is really happening.  A reference to a method which creates the DAO is paased into
             // the AddTransient method.
             services.AddTransient<ICityDAO, CitySqlDAO>(MakeNewCityDAO);
+
+            //setup di for CountryDAO
+            services.AddTransient<ICountryDAO, CountrySqlDAO>((x) => new CountrySqlDAO(connectionString));
         }
 
         // And here is the method that create a new CitySQLDAO

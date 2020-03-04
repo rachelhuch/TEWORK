@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GETForms.Web.DAL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -32,6 +33,10 @@ namespace GETForms.Web
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            string connectionString = Configuration.GetConnectionString("Default");
+            services.AddTransient<IActorDAO, ActorDAO>(x => new ActorDAO(connectionString));
+            services.AddTransient<IFilmDAO, FilmDAO>(x => new FilmDAO(connectionString));
+            services.AddTransient<ICustomerDAO, CustomerDAO>(x => new CustomerDAO(connectionString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,0 +1,28 @@
+﻿@model ActorVM
+@{
+    ViewData["Title"] = "SearchResult";
+}
+<h2>Last Name:</h2>
+<!--create form-->
+<form method="get" action="/Actors/SearchResult">
+
+    <label for="Request">LastName</label>
+    <input input type="text" name="Request" id="Request" />
+    <input type="submit" value="Search" />
+</form>
+<h2>Name:</h2>
+
+
+@if (Model.actors != null)
+{
+    foreach (Actor actor in Model.actors)
+    {
+        <p>@actor.FirstName @actor.LastName </p>
+    }
+
+
+
+
+
+
+}

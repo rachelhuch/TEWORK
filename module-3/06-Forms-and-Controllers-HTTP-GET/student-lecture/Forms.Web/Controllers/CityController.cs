@@ -15,12 +15,13 @@ namespace Forms.Web.Controllers
         /**** DEPENDENCY INJECTION *****/
         // TODO 01: Implement DI by creating contructor arguments and saving off the DAOs in a private variable.
         // Also, get rid of the connection string
-        private string connectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=World;Integrated Security=True";
+        
 
         private ICityDAO cityDAO;
-        public CityController()
+        public CityController(ICityDAO cityDAO)
         {
-            this.cityDAO = new CitySqlDAO(connectionString);
+
+            this.cityDAO = cityDAO;
         }
 
         public IActionResult Index()
@@ -30,14 +31,29 @@ namespace Forms.Web.Controllers
         }
 
         // TODO 02: Write the SearchResults action (string countryCode, string district) to do the work of searching for a city. 
+
+     
+        public IActionResult Search(CitySearchVM vm)
+        {
+            //CitySearchVM vm = new CitySearchVM();
+            //vm.CountryCode = countryCode;
+            //vm.District = district;
+
+            vm.Cities=cityDAO.GetCities(vm.CountryCode, vm.District);
+            return View(vm);
+        }
         // TODO 03: Create a SearchResults view to display the results of the search
         //          We should be able to run the search using the browser's address bar
-        // TODO 04: Since we copied the table from the Index view, let's replace both with a call to a partial view
 
+      
+        // TODO 04: Since we copied the table from the Index view, let's replace both with a call to a partial view
+        
 
 
         // TODO 05: Create a Search Action and View, which presents the user with a search form (countryCode, district) 
         //          (pure HTML - GET). Action=searchresults
+
+
         // TODO 06a:DEMO: Run the form and see what is sent by the browser (using browser dev tools).
         //          We should get search results.
         // TODO 06b:DEMO: Change the form to POST and compare the payloads.  Change back to GET for today.

@@ -1,0 +1,25 @@
+﻿@model FilmSearch
+
+<form method="get" action="/films/searchresult">
+<table>
+    <tr>
+
+        <td><label for="MinLength">Minimum Length:</label></td>
+        <td><label for="MaxLength">Maximum Length:</label></td>
+        <td><label for="Genre">Genre:</label></td>
+      </tr>
+    <tr>
+        <td class="userinput"><input type="text" name="MinLength" id="MinLength" /></td>
+        <td class="userinput"><input type="text" name="MaxLength" id="MaxLength" /></td>
+        <td class="userinput">
+            <select id="Genre" name="Genre">
+                @foreach (string item in Model.GenreList)
+                {
+                    <option value="@item">@item</option>
+                }
+            </select>
+        </td>
+        <td class="userinput"><input type="submit" value="Search"/></td>
+    </tr>
+</table>
+</form>

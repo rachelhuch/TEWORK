@@ -1,0 +1,8 @@
+﻿@model CitySearchVM
+@{
+    ViewData["Title"] = "SearchResults";
+}
+
+<h2>SearchResults for Country: @Model.CountryCode, District: @Model.District</h2>
+<!--create partial view instead of copying and pasting from index view-->
+<partial name="_CityList" model="Model.Cities" />

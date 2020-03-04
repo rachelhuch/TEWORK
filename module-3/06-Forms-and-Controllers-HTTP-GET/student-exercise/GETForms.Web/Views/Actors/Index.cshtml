@@ -1,0 +1,17 @@
+﻿@model Actor
+@{
+    ViewData["LastName"] = "Search";
+}
+
+<h2>Last Name:</h2>
+<!--create form-->
+<form method="get" action="/Actors/SearchResult">
+
+    <label for="Request">LastName</label>
+    <input input type="text" name="Request" id="Request" />
+    <input type="submit" value="Search" />
+</form>
+
+
+
+

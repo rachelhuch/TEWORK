@@ -14,9 +14,13 @@ namespace Forms.Web.Controllers
 
         /**** DEPENDENCY INJECTION *****/
         private ICityDAO cityDAO;
-        public CityController(ICityDAO cityDAO)
+
+        private ICountryDAO countryDAO;
+
+        public CityController(ICityDAO cityDAO, ICountryDAO countryDAO)
         {
             this.cityDAO = cityDAO;
+            this.countryDAO = countryDAO;
         }
 
         public IActionResult Index()
@@ -38,18 +42,43 @@ namespace Forms.Web.Controllers
             }
 
             // TODO 01c: Populate the country list on the view model by calling GetCountrySelectList
+            //call GetCountries() on the countryDAO
+            IList<Country> countries = countryDAO.GetCountries();
+
+            vm.CountryList = new SelectList(countries, "Code", "Name");
 
             return View(vm);
         }
 
-
-        // TODO 01: Add a SelectList to the view-model for country codes. 
-        // TODO 01b: Add a method to Generate Select List from the Country DAO. (GetCountrySelectList)
-        //          This will require us to ask for another "injected" DAO
+//       This will require us to ask for another "injected" DAO
 
 
         // TODO 03: Implement the PRG pattern to add a new city
-        // TODO 03a: Create an AddCity (GET) method to handle the request and show the form
+
+        // TODO 03a: Create an Add(GET) method to handle the request and show the form
+        [HttpGet]
+        public IActionResult Add()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Add(City city)
+        {
+            int newCityId = cityDAO.AddCity(city);
+
+            //return Redirect($"/city/ConfirmAdd/{newCityId}");
+            return RedirectToAction("ConfirmAdd", new { id = newCityId });
+        }
+
+        [HttpGet]
+
+        public IActionResult ConfirmAdd(int id)
+        {
+            City city = cityDAO.GetCityById(id);
+            return View(city);
+        }
+           
         // TODO 03b: Create the Add City form to get information from the user
         // TODO 03c: Create an AddCity (POST) method to get the form data and call the dao to add a city
         // TODO 03d: Create the confirmation (Get) method to read the added city and call the view
@@ -66,12 +95,45 @@ namespace Forms.Web.Controllers
         // TODO 06c: Create a Delete (POST) method to call the dao to delete a city
         // TODO 06d: Create the confirmation (Get) method call the view to confirm
         // TODO 06e: Create the Confirmation page to show the successful Delete
-
+         public IActionResult Detail (int id)
+        {
+            City city = cityDAO.GetCityById(id);
+            if(city==null)
+            {
+                return NotFound();
+            }
+            return View(city);
+        }
         // TODO 07: Implement flow to UPDATE a city
         // TODO 07a: Create an Update (GET) method to handle the request and show the form
         // TODO 07b: Create the Update City form to show / get information to the user
         // TODO 07c: Create an Update (POST) method to call the dao to update a city
         // TODO 07d: Redirect to the Update (GET) page
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            City city = cityDAO.GetCityById(id);
+            if (city == null)
+            {
+                return NotFound();
+            }
+            return View(city);
+        }
+        [HttpPost]
 
+        public IActionResult Delete(City city)
+        {
+            cityDAO.DeleteCity(city.CityId);
+            return RedirectToAction("ConfirmDelete");
+           
+        }
+
+        [HttpGet]
+        public IActionResultConfirmDelete()
+        {
+            return View();
+
+
+        }
     }
 }

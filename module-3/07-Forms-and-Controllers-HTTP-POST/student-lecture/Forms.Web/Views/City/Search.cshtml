@@ -19,7 +19,10 @@
     <table>
         <tr>
             <td><label asp-for="CountryCode"></label></td>
-            <td><input asp-for="CountryCode" placeholder="Enter country code" /></td>
+            <td><input asp-for="CountryCode"/></td>
+            <td>
+                <select asp-for="CountryCode" asp-items="Model.CountryList"></select>
+            </td>
         </tr>
         <tr>
             <td><label asp-for="District"></label></td>

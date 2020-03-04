@@ -1,0 +1,33 @@
+﻿@model Customer
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+
+<h2>Name:</h2>
+<h2>Sortby:</h2>
+<!--create form-->
+<form method="get" action="/Customer/SearchResult">
+    
+    <label for="Request">Name</label>
+    <input input type="text" name="Request" id="Request" />
+    <table>
+        <tr>
+            <td><label for="sortby">Sort By</label></td>
+            <td>
+                <select name="sortby" id="sortby">
+                    <option value="LastName">LastName</option>
+                    <option value="FirstName">FirstName</option>
+                    <option value="Email">Email</option>
+                    <option value="Active">Active</option>
+
+                </select>
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Search" />
+
+</form>
+
