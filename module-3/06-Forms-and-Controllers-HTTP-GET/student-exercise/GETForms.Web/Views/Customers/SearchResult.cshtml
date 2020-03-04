@@ -1,16 +1,12 @@
-﻿@model Customer
+﻿@model IList<Customer>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "SearchResult";
 }
 
-<h2>Index</h2>
+<h2>SearchResult</h2>
 
-
-<h2>Name:</h2>
-<h2>Sortby:</h2>
-<!--create form-->
 <form method="get" action="/Customer/SearchResult">
-    
+
     <table>
         <tr>
 
@@ -37,6 +33,15 @@
             <td><label for="Email">Email</label></td>
             <td><label for="Active">Active</label></td>
         </tr>
+       @foreach (Customer customer in Model)
+        {
+           <tr>
+               <td>@customer.FirstName  @customer.LastName</td>
+               <td>@customer.Email</td>
+               <td>@(customer.IsActive ? "Yes" :"No")</td>
+           </tr>
+        }
+        
+     
     </table>
 </form>
-

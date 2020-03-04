@@ -32,13 +32,13 @@ namespace GETForms.Web.Controllers
         /// </summary>
         /// <param name="request">A request model that contains the search parameters.</param>
         //    /// <returns></returns>
-        //    public ActionResult SearchResult(Customer request)
-        //    {
-
-        //    request.customers = customerDAO.SearchForCustomers(Customer request);
-        //        return View(request);
-        //    }
-        //}
+        public ActionResult SearchResult(CustomerVM request)
+        {
+            IList<Customer> customers = customerDAO.SearchForCustomers(request.Request, request.SortBy);
+           
+            return View(customers);
+        }
     }
+}
        
-    }
+    

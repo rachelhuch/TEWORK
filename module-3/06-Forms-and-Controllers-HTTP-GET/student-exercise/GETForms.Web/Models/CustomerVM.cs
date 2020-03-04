@@ -8,6 +8,6 @@ namespace GETForms.Web.Models
     public class CustomerVM
     {
         public string Request { get; set; }
-        public IList<Customer> customers { get; set; }
+        public string SortBy { get; set; }
     }
 }
