@@ -17,14 +17,21 @@ namespace Forms.Web.Models
     {
         public int CityId { get; set; }
 
+        [Required]
+        [StringLength(64)]
         public string Name { get; set; }
         
+        [Required]
+        [StringLength(3, MinimumLength=3)]
+
         public string CountryCode { get; set; }
         
+        [Required]
         public string CountryName { get; set; }
 
         public string District { get; set; }
 
+        [Range(1, 99999999)]
         public int Population { get; set; }
 
         public City() { }

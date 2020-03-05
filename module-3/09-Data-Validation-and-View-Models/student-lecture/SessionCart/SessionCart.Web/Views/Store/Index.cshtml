@@ -1,4 +1,4 @@
-﻿@model IList<Product>
+﻿@model IList<ShoppingCartItem>
 @{
     ViewData["Title"] = "Index";
 }
@@ -14,16 +14,17 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (Product product in Model)
+        @foreach (ShoppingCartItem scItem in Model)
         {
         <tr>
-            <td>@product.Id</td>
-            <td>@product.Name</td>
-            <td>@product.Cost</td>
+            <td>@scItem.Product.Id</td>
+            <td>@scItem.Product.Name</td>
+            <td>@scItem.Product.Cost</td>
             <td>
                 <!-- Add a button to add the product to our cart. -->
                 <form asp-controller="Store" asp-action="Index" method="post">
                     <input type="hidden" asp-for="@product.Id" />
+                    <input asp-for="@scItem.Quantity" value="1"/>
                     <input type="submit" value="Add to cart" />
                 </form>
             </td>

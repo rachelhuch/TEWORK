@@ -75,14 +75,18 @@ namespace SessionCart.Web.Controllers
 
             // Get the catalog of product
             IList<Product> products = productDAO.GetProducts();
-
+            List<ShoppingCartItem> items = new List<ShoppingCartItem>();
+            foreach(Product p in products)
+            {
+                items.Add(new ShoppingCartItem() { Quantity = 1, Product=p});
+            }
             return View(products);
         }
 
         [HttpPost]
-        public IActionResult Index(Product product)
+        public IActionResult Index(Product product, int quantity =1)
         {
-            product = productDAO.GetProduct(product.Id);
+             product = productDAO.GetProduct(product.Id);
 
             if (product == null)
             {
@@ -91,6 +95,25 @@ namespace SessionCart.Web.Controllers
 
 
             // Get the cart from session, if it exists
+            ShoppingCart cart = GetShoppingCart();
+
+            cart.AddToCart(product,  quantity);
+
+            SaveShoppingCart(cart);
+
+            TempData["Message"] = $"Your item {product.Name} was added.";
+            return RedirectToAction("Index");
+        }
+
+        private void SaveShoppingCart(ShoppingCart cart)
+        {
+            // Save the cart to Session, so we can get it next time.
+            string json2 = JsonConvert.SerializeObject(cart);
+            HttpContext.Session.SetString("cart", json2);
+        }
+
+        private ShoppingCart GetShoppingCart()
+        {
             ShoppingCart cart;
             string json1 = HttpContext.Session.GetString("cart");
             if (String.IsNullOrEmpty(json1))
@@ -105,14 +128,16 @@ namespace SessionCart.Web.Controllers
                 //cart = JsonConvert.DeserializeObject(json1, typeof(ShoppingCart)) as ShoppingCart;
             }
 
-            cart.AddToCart(product, 1);
+            return cart;
+        }
 
-            // Save the cart to Session, so we can get it next time.
-            string json2 = JsonConvert.SerializeObject(cart);
-            HttpContext.Session.SetString("cart", json2);
+        public IActionResult ViewCart()
+        {
+            //get the shopping cart from session
+            ShoppingCart cart = GetShoppingCart();
+            //pass the shopping cart to the view for displaying
 
-
-            return RedirectToAction("Index");
+            return View(cart);
         }
     }
 }

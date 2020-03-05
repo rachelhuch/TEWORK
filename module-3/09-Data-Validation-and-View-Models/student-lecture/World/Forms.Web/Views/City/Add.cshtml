@@ -11,6 +11,7 @@
     }
     <!-- summary -->
 
+    <div asp-validation-summary="All" class="error validationSummary"></div>
     <table class="table table-striped">
         @{
             // TODO 05: Add asp-validation-for spans to all fields
@@ -18,19 +19,19 @@
         <tbody>
             <tr>
                 <td><label asp-for="Name"></label></td>
-                <td><input asp-for="Name" /></td>
+                <td><input asp-for="Name" /><span asp-validation-for="Name" class="error"></span></td>
             </tr>
             <tr>
                 <td><label asp-for="CountryCode"></label></td>
-                <td><input asp-for="CountryCode" /></td>
+                <td><input asp-for="CountryCode" /><span asp-validation-for="CountryCode" class="error"></span></td>
             </tr>
             <tr>
                 <td><label asp-for="District"></label></td>
-                <td><input asp-for="District" /></td>
+                <td><input asp-for="District" /><span asp-validation-for="District" class="error"></span></td>
             </tr>
             <tr>
                 <td><label asp-for="Population"></label></td>
-                <td><input asp-for="Population" step="1000"/></td>
+                <td><input asp-for="Population" step="1000"/><span asp-validation-for="Population" class="error"></span></td>
             </tr>
             <tr>
                 <td></td>

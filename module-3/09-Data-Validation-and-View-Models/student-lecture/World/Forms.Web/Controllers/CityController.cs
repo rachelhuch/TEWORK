@@ -62,7 +62,10 @@ namespace Forms.Web.Controllers
         {
             // TODO 07: Check model state before updating. If there are errors, return the form to the user.
 
-
+            if(!ModelState.IsValid)
+            {
+                return View(city);
+            }
             int newCityId = cityDAO.AddCity(city);
 
             // TODO 02a: Add a confirmation message to the user and then re-direct to the search page

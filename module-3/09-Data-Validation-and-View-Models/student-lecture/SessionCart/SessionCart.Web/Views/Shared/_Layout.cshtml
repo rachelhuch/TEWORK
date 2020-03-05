@@ -41,7 +41,7 @@
 
     <div class="container body-content">
         @{
-            string msg = (string)ViewData["Message"];
+            string msg = (string)TempData["Message"];
 
             if (!String.IsNullOrEmpty(msg))
             {
