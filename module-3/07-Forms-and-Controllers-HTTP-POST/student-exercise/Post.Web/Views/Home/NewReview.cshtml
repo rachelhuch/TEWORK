@@ -1,0 +1,41 @@
+﻿@model Review
+@{
+    ViewData["Title"] = "NewReview";
+}
+
+    <section class="centeredPanel">
+        <h2>NewReview</h2>
+
+
+
+     
+        <form asp-controller="Home" asp-action="NewReview" method="Post">
+            <table>
+                <tbody>
+                    <tr>
+                        <td><label asp-for="Username"></label></td>
+                        <td><input asp-for="Username" /></td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="ReviewTitle"></label></td>
+                        <td><input asp-for="ReviewTitle" /></td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="Rating"></label></td>
+                        <td><input asp-for="Rating" /></td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="ReviewText"></label></td>
+                        <td><input asp-for="ReviewText" /></td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="Submit" /></td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+        </form>
+    </section>

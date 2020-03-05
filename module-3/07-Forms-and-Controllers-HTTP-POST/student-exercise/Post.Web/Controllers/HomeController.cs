@@ -29,6 +29,22 @@ namespace Post.Web.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+
+        [HttpGet]
+
+        public IActionResult NewReview()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult NewReview(Review review)
+        {
+            reviewDAO.SaveReview(review);
+
+            return RedirectToAction("Index");
+        }
     }
 }
 
