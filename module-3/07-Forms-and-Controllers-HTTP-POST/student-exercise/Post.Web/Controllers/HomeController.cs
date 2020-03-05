@@ -11,11 +11,17 @@ namespace Post.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private IReviewDAO reviewDAO;
 
-        // GET: Home
+        public HomeController(IReviewDAO reviewDAO)
+        {
+            this.reviewDAO = reviewDAO;
+        }
         public ActionResult Index()
         {
-            return View();
+            IList<Review> reviews = reviewDAO.GetAllReviews();
+            return View(reviews);
+            
         }        
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -25,3 +31,4 @@ namespace Post.Web.Controllers
         }
     }
 }
+

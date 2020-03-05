@@ -51,7 +51,71 @@ namespace SessionCart.Web.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            string lastTimeHere = HttpContext.Session.GetString("LastAccess");
+
+            if (String.IsNullOrEmpty(lastTimeHere))
+                {
+                //Say Welcome to the user
+                ViewData["Message"] = "Welcome!";
+            }
+            else
+            {
+                //Convert from a string back to a DateTime
+                DateTime last = DateTime.Parse(lastTimeHere);
+
+                //Calculate the time since I was last here and display to the user
+                double secondsSinceLastAccess = (DateTime.Now - last).TotalSeconds;
+
+                ViewData["Message"] = $"Welcome back! You were last here {secondsSinceLastAccess} ago.";
+
+
+            }
+
+            //Write the New Last Access time to session so we can get it next time
+
+            HttpContext.Session.SetString("LastAccess", DateTime.Now.ToString());
+
+            //Get the catalog of products
+
+            IList<Product> products=productDAO.GetProducts();
+            return View(products);
         }
+
+        [HttpPost]
+        public IActionResult Index(Product product)
+        {
+            product = productDAO.GetProduct(product.Id);
+
+            if(product ==null)
+            {
+                return NotFound();
+            }
+
+            //Get the cart from session if it exists
+
+
+            ShoppingCart cart;
+            string json = HttpContext.Session.GetString("cart");
+
+            if(String.IsNullOrEmpty(json))
+            {
+                //Need a new cart
+                cart = new ShoppingCart();
+            }
+            else
+            {
+                cart=JsonConvert.DeserializeObject<ShoppingCart>(json);
+                //cart = (ShoppingCart)JsonConvert.DeserializeObject(json); could also do this way
+
+            }
+
+            //Save the cart to session so we can get it the next time
+            //library
+           json= JsonConvert.SerializeObject(cart);
+            HttpContext.Session.SetString("cart", json);
+
+            return RedirectToAction("Index");
+        }
+
     }
 }
