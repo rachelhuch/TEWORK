@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Post.Web.DAL;
 
 namespace Post.Web
 {
@@ -17,6 +18,8 @@ namespace Post.Web
         {
             Configuration = configuration;
         }
+
+        private string ConnectionString;
 
         public IConfiguration Configuration { get; }
 
@@ -32,6 +35,11 @@ namespace Post.Web
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            ConnectionString = Configuration.GetConnectionString("Default");
+            services.AddTransient<IReviewDAO, ReviewSqlDAO>(x => new ReviewSqlDAO(ConnectionString));
+           
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
