@@ -5,20 +5,38 @@
 <!--Homepage-->
 
 <section class="centeredPanel">
+    <img src="~/images/forDummies.png" />
     <h2>Past Reviews</h2>
     <a asp-controller="Home" asp-action="NewReview">Leave a review</a>
-    <table class="table-striped">
+    @{int i = 0; }
         @foreach (Review review in Model)
         {
-            <tr>
-                <td>@review.Username</td>
-                <td>by @review.ReviewTitle</td>
-                <td>@review.Rating</td>
-                <td>@review.ReviewText</td>
-            </tr>
+            string divclass;
+            if( i%2==0)
+            {
+                divclass = "darkbg";
 
+            }
+            else
+            {
+                divclass = "lightbg";
+            }
+            <div class="@divclass">
+            
+                <h3>@review.ReviewTitle</h3>
+              <span>by @review.Username on @review.ReviewDate</span>
+                
+                
+                    @for (int j = 1; j < review.Rating; j++)
+                    {
+                        <span><img src="~/images/star.png" /></span>
+                    }
+                
+              <p>  @review.ReviewText </p>
+            
+</div>
 
         }
-    </table>
+   
 
 </section>

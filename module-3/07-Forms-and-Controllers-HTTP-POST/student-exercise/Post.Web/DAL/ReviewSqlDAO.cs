@@ -27,7 +27,7 @@ namespace Post.Web.DAL
             {
                 conn.Open();
 
-                string sql = "SELECT * from reviews";
+                string sql = "SELECT * from reviews Order by review_date desc";
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataReader rdr = cmd.ExecuteReader();
 
@@ -38,7 +38,8 @@ namespace Post.Web.DAL
                         Username = Convert.ToString(rdr["username"]),
                         ReviewTitle = Convert.ToString(rdr["review_title"]),
                         Rating = Convert.ToInt32(rdr["rating"]),
-                        ReviewText = Convert.ToString(rdr["review_text"])
+                        ReviewText = Convert.ToString(rdr["review_text"]),
+                        ReviewDate=Convert.ToDateTime(rdr["review_date"])
 
                     };
                     reviews.Add(review);
@@ -59,23 +60,30 @@ namespace Post.Web.DAL
 
 
 
-        public bool SaveReview(Review newReview)
+        public int SaveReview(Review newReview)
         {
+            try {
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                {
+                    conn.Open();
 
-            using (SqlConnection conn = new SqlConnection(ConnectionString))
+                    string sql = "Insert INTO reviews (username, review_title, rating, review_text, review_date) Values (@username, @review_title, @rating, @review_text, @review_date);Select  @@Identity";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@username", newReview.Username);
+                    cmd.Parameters.AddWithValue("@review_title", newReview.ReviewTitle);
+                    cmd.Parameters.AddWithValue("@rating", newReview.Rating);
+                    cmd.Parameters.AddWithValue("@review_text", newReview.ReviewText);
+                    cmd.Parameters.AddWithValue("@review_date", DateTime.Now);
+
+                   return Convert.ToInt32(cmd.ExecuteScalar());
+
+                  
+                }
+
+            }
+            catch
             {
-                conn.Open();
-
-                string sql = "Insert INTO review (username, review_title, rating, review_text) Values (@username, @review_title, @rating, @review_text)";
-                SqlCommand cmd = new SqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@username", newReview.Username);
-                cmd.Parameters.AddWithValue("@review_title", newReview.ReviewTitle);
-                cmd.Parameters.AddWithValue("@rating", newReview.Rating);
-                cmd.Parameters.AddWithValue("@review_text", newReview.ReviewText);
-
-                cmd.ExecuteNonQuery();
-
-                return true;
+                throw;
             }
         }
 

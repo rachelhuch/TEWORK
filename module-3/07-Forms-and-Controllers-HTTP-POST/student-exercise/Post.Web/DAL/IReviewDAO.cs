@@ -16,6 +16,6 @@ namespace Post.Web.DAL
         /// </summary>
         /// <param name="newReview"></param>
         /// <returns></returns>
-         bool SaveReview(Review newReview);
+         int SaveReview(Review newReview);
     }
 }
