@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewData["Title"] = "Confirmation";
+}
+
+<h2>Confirmation</h2>
+
+@{ 
+    string msg = (string)TempData["Message"];
+
+    if(!String.IsNullOrEmpty(msg))
+    {
+        <p>@msg</p>
+    }
+}
