@@ -9,23 +9,23 @@
 <h2>Name:</h2>
 <h2>Sortby:</h2>
 <!--create form-->
-<form method="get" action="/Customer/SearchResult">
+<form method="get" action="/Customers/SearchResult">
     
     <table>
         <tr>
 
-            <td><label for="Name">Name:</label></td>
-            <td><input type="text" /></td>
+            <td><label for="Request">Name:</label></td>
+            <td><input type="text" for="Request" id="Request" /></td>
            
         </tr>
         <tr>
             <td><label for="sortby">Sort By</label></td>
             <td>
                 <select name="sortby" id="sortby">
-                    <option value="LastName">LastName</option>
-                    <option value="FirstName">FirstName</option>
-                    <option value="Email">Email</option>
-                    <option value="Active">Active</option>
+                    <option value="last_name">LastName</option>
+                    <option value="first_name">FirstName</option>
+                    <option value="email">Email</option>
+                    <option value="active">Active</option>
 
                 </select>
             </td>
