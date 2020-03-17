@@ -5,7 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Puppies.DAL;
+<<<<<<< HEAD
 using Puppies.Models;
+=======
+>>>>>>> d91bd39055d92512d6751a12f03224931a9dd31d
 
 namespace Puppies.Controllers
 {
@@ -24,6 +27,7 @@ namespace Puppies.Controllers
         {
             return new JsonResult(puppyDao.GetPuppies());
         }
+<<<<<<< HEAD
 
 
         [HttpGet("{id}", Name = "GetPuppy")]
@@ -87,5 +91,7 @@ namespace Puppies.Controllers
             puppyDao.DeletePuppy(id);
             return Ok();
         }
+=======
+>>>>>>> d91bd39055d92512d6751a12f03224931a9dd31d
     }
 }
