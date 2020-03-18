@@ -87,15 +87,35 @@ function falsy(x) {
  */
 function arrays() {
   // Create an empty array
+  let junk =[];
 
+console.table(junk);
   // Add some elements by pushing
-
+junk .push("Mike");
+console.table(junk);
   // Add some more elements sparsely
-
+junk[3]=65;
+junk[4]={
+  name:"Andrew",
+  age:42, 
+  employees:[
+    "Peter Gibbons", 
+    "Milton Waddams", 
+    "Samir Ngaheenanjar", 
+    "Michael Bolton"
+  ],
+  introduce: function(){
+    return 'Hi my name is ${this.firstName} ${this.lastName}. I am (${this.age}) years old.';
+  }
+}
+console.table(junk);
   // Use the table command to print the results
 
   // Loop through the array and print all elements
-
+for (let i=0; i<junk.length; i++)
+{
+  console.log(junk[i]);
+}
   return 0;
 }
 
