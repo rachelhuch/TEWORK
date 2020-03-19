@@ -40,6 +40,14 @@ function isSummer(month, day = 1, hemisphere = 'northern') {
  * @param {boolean} [recommendation=false] does the student have a recommendation
  * @returns {boolean} true if they are admitted
  */
+function isAdmitted(gpa, satScore=0, recommendation=false){
+  if ((gpa >4.0)||(satScore > 1300) || (satScore >1200 && recommendation==true) || (gpa>3.0 && recommendation==true)){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
 
 /**
  * Write a function called useParameterToFilterArray so that it takes an anonymous
@@ -49,7 +57,10 @@ function isSummer(month, day = 1, hemisphere = 'northern') {
  * @returns {number[]} the filtered array
  */
 let unfilteredArray = [1, 2, 3, 4, 5, 6];
-
+ 
+function useParameterToFilterArray(anonFunc){
+  return unfilteredArray.filter(anonFunc);
+}
 /**
  * Write a function called makeNumber to take two strings
  * of digits, concatenate them together, and then return
@@ -63,6 +74,14 @@ let unfilteredArray = [1, 2, 3, 4, 5, 6];
  * @returns {number} the resultant number
  */
 
+function makeNumber(string1, string2){
+  let s=string1 + string2;
+
+  let t= intParse(s);
+
+  return t;
+
+}
 /**
  * Write a function called addAll that takes an unknown number of parameters
  * and adds them all together. Return the result.
@@ -70,12 +89,26 @@ let unfilteredArray = [1, 2, 3, 4, 5, 6];
  * @param {...number} num a series of numbers to add together
  * @returns {number} the sum of all the parameters (or arguments)
  */
+function addAll(){
+  let result=0;
+  for (let i=0; i<arguments.length; i++){
+    result += arguments[i];
+  }
+  return result;
+  }
+
+  
 
 /*
  * Write and document a function called makeHappy that takes
  * an array and prepends 'Happy ' to the beginning of all the
  * words and returns them as a new array. Use the `map` function.
  */
+
+ function makeHappy(arr){
+   return arr.map( (str) => 'Happy '+ str );
+   
+ }
 
 /*
  * Write and document a function called getFullAddressesOfProperties
@@ -94,7 +127,9 @@ let unfilteredArray = [1, 2, 3, 4, 5, 6];
  *
  * Use `map` and an anonymous function.
  */
-
+function getFullAddressesOfProperties(obj){
+  return obj.map( (o) => `${o.streetNumber} ${o.streetName} ${o.streetType} ${o.city} ${o.state} ${o.zip}`);
+}
 /*
  * Create and document a function called findLargest.
  *
