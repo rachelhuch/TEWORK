@@ -76,8 +76,7 @@ function useParameterToFilterArray(anonFunc){
 
 function makeNumber(string1, string2){
   let s=string1 + string2;
-
-  let t= intParse(s);
+  let t= parseInt(s);
 
   return t;
 
@@ -136,6 +135,20 @@ function getFullAddressesOfProperties(obj){
  * Using `forEach`, find the largest element in an array.
  * It should work for strings and numbers.
  */
+function findLargest(arr){
+  let largest='';
+  arr.forEach((ele) =>{
+    if(ele > largest)
+    {
+      largest=ele;
+    }
+  });
+  return largest;
+   
+}
+//x is the parameter(s)
+//arr.forEach(function testFunction(x)= return x *4;)
+//arr.forEach((x)=> x*4)
 
 /*
  * CHALLENGE
@@ -154,3 +167,9 @@ function getFullAddressesOfProperties(obj){
  *
  * Read the tests to verify you have the correct behavior.
  */
+function getSumOfSubArrayValues(arr = []) {
+  if (arr.length == 0) {
+    return 0;
+  }
+  return arr.reduce((r, a) => r.concat(a)).reduce((r, a) => r + a);
+}
