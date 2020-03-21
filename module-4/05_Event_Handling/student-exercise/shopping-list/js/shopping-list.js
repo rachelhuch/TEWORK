@@ -37,5 +37,26 @@ function displayGroceries() {
   });
 }
 
-setPageTitle();
-displayGroceries();
+
+document.addEventListener("DOMContentLoaded", initializePage)
+
+
+
+function initializePage(){
+  setPageTitle()
+  displayGroceries()
+
+
+const groceryComplete= document.querySelectorAll('li')
+
+
+groceryComplete.forEach((task) => {
+  task.addEventListener('click', () => {
+    if(!task.classList.contains('completed')) {
+        task.classList.add('completed')
+
+        task.querySelector('i').classList.add('completed')
+    }
+  })
+})
+}
