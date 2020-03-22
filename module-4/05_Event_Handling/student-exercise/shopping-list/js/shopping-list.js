@@ -40,8 +40,6 @@ function displayGroceries() {
 
 document.addEventListener("DOMContentLoaded", initializePage)
 
-
-
 function initializePage(){
   setPageTitle()
   displayGroceries()
@@ -57,6 +55,35 @@ groceryComplete.forEach((task) => {
 
         task.querySelector('i').classList.add('completed')
     }
+    else
+    {
+      task.classList.remove('completed'); //add 'completed class to li tag
+task.querySelector('i').classList.remove('completed')
+    }
   })
 })
+
+const completeAll = document.getElementById('toggleAll');
+
+completeAll.addEventListener('click', () => {
+  let groceryList = document.querySelectorAll('.shopping-list > ul > li');
+  groceryList.forEach(task => {
+    if (allItemsIncomplete && !task.classList.contains('completed')) {
+      task.classList.add('completed');
+      //document.querySelector('i').classList.add('completed');
+
+    } else if (!allItemsIncomplete && task.classList.contains('completed')) {
+      task.classList.remove('completed');
+      //task.querySelector('i').classList.remove('completed');
+    }
+  });
+  if (allItemsIncomplete) {
+      allItemsIncomplete = false;
+      completeAll.innerText = 'Mark All Incomplete';
+  }
+  else {
+      allItemsIncomplete = true;
+      completeAll.innerText = 'Mark All Complete';
+  }
+});
 }
