@@ -55,12 +55,13 @@ groceryComplete.forEach((task) => {
 
         task.querySelector('i').classList.add('completed')
     }
-    else
-    {
-      task.classList.remove('completed'); //add 'completed class to li tag
-task.querySelector('i').classList.remove('completed')
-    }
+    task.addEventListener('dblclick', ()=>{
+      if(task.classList.contains('completed')){
+        task.classList.remove('completed');
+        task.querySelector('i').classList.remove('completed')
+      }
   })
+})
 })
 
 const completeAll = document.getElementById('toggleAll');
