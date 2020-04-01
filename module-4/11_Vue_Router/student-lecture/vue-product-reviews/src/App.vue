@@ -1,22 +1,12 @@
 <template>
   <div id="app">
-    <header>
-      <div class="heading">Awesome Book Reviews</div>
-    </header>
-    <product-review />
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </div>
+    <router-view/>
   </div>
 </template>
-
-<script>
-import ProductReview from '@/components/ProductReview.vue'
-
-export default {
-  name: 'app',
-  components: {
-    ProductReview
-  }
-}
-</script>
 
 <style>
 #app {
